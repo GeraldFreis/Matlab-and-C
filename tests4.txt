@@ -1,0 +1,11 @@
+case 1:
+input: -1
+output: The population is less than zero which is impossible
+
+case 2:
+input: 100000000000
+output: The total cost of all trips by car, per day, for this city is: $7467767541.386
+
+case 3:
+input: pow2(213.231)
+output: The total cost of all trips by car, per day, for this city is: $1153766157727953618962848100503263661895365494343434234715176960.000 

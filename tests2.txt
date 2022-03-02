@@ -1,0 +1,11 @@
+case_1:
+29182
+output: 5544.58 KL
+
+case_2:
+-22200000
+output: The population is beneath zero which is impossible
+
+case_3:
+sqrt(3890929.9281)
+output: 374.78 KL
