@@ -19,7 +19,12 @@ function  one = findingones(matrix)
 
                 while ~test
                     if(matrix(row+decrement_counter, column)~=0)
-                        final_row = row + decrement_counter-1;                        
+                        final_row = row + decrement_counter-1;
+                        if(final_row - row < 50)
+                            fprintf("Not a one\n");
+                            one = 0;
+                            return;
+                        end
                         test = true;
 %                         fprintf("%d, %d\n", row+decrement_counter, column)
 
@@ -47,7 +52,6 @@ function  one = findingones(matrix)
 %                         test = true;
                     else
                         decrement_counter = decrement_counter + 1;
-%                         fprintf("%d\n", decrement_counter);
                     end
                 
                 end

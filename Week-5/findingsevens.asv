@@ -1,0 +1,48 @@
+function sevens = findingsevens(matrix)
+    [rows, columns] = size(matrix);
+    % logic for six:
+    % we start at the top left of the seven so we have to move to the end of the row
+        % for 72 font calibri this is 44 units right
+        % 
+    for row = 1:rows
+        for column = 1:columns
+            if(matrix(row, column)==0)
+                fprintf("%d, %d", row, column);
+                test = false;  % sentinel variable
+                xcrement_var = 0;
+                stage = 1;  % this is going to be the variable that contains the sta
+                % of the loop, i.e what vector to initialise
+
+                while ~test
+                    if(stage==1)
+                        if(matrix(row, column+xcrement_var)==0 && xcrement_var < 44)
+                            xcrement_var = xcrement_var + 1;
+                        elseif(xcrement_var == 44)
+                            new_column = column + xcrement_var;
+                            xcrement_var = 0;
+                            stage = stage + 1;
+                        else
+                            fprintf("Not a seven\n");
+                            sevens = 0;
+                            return;
+                        end
+                    elseif(stage==2)
+                        if(matrix(row + 2*xcrement_var, column - xcrement_var)==0 && xcrement_var < 36)
+                            xcrement_var = xcrement_var + 1;
+                            
+                        elseif(xcrement_var == 36)
+                            test = true;
+                        else
+                            fprintf("Not a seven\n");
+                            sevens = 0;
+                            return;
+                        end
+                    end
+                end
+                sevens = 1;
+                fprintf("A seven was found\n");
+                return;
+            end
+        end
+    end
+end

@@ -21,6 +21,11 @@ function pluses = findingplussymbol(matrix)
 
                     else
                         final_row = r+running_downwards_counter-1;
+                        if(final_row-r < 50)
+                            fprintf("Not a plus\n");
+                            pluses=0;
+                            return
+                        end
                         test = true;
                     end
                 end
