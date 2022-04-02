@@ -4,8 +4,7 @@ clear
 %% code requires using a font 72 and calibri
 % tp = takingpictures;
 % tp.takingpic
-var = 'first_test.png';
-% var = 'number_1.png';
+var = 'number_1.png';
 
 pixelmatrix = pixeltomatrix(var);
 shaped_array = findingshapes(pixelmatrix);
