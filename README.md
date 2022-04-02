@@ -14,3 +14,5 @@ So i did this rather ineffectively for most numbers, until 9 which I was able to
 My code was able to take the number_x.png files and recognise every number.
 
 I did work on the rest during the weekend but that I will put into the week 6 branch
+
+My favourite finding_numbers function that I wrote was findingeights() as I used a pseudo multithreading approach were I initialised two vectors that move proportionally down the shape. I used this same approach with findingnines() for the top of the 9, and I also changed my approach from using lots of for loops like findingthrees, to using one while loop with a sentinal condition. This was an attempt to decrease time complexity. I regulated the behaviour of the loop - i.e the vectors used - by calling different stages, and updating the stages if each vector passed its tests.
