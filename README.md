@@ -1,9 +1,7 @@
 # Matlab-and-C
-This is a continuing development of a number and arithmetic operations recogniser and solver in matlab
+This is my work following the Weekend of Week 6
 
-I'm sorry about how this repo currently looks
-I am taking matlab and C in university and we are required to make a project. My project is a matlab application that is capable of taking images and recognising numbers and arithmetic operations in that image. The project fundamentally utilises vectors to iterate through black pixels in the images and if each step of the variable number of vectors for each shape passes - i.e if the pixel is still black - the shape is that which we are searching for.
-If you wish to see the most recent code it is within Week-6-half-1. I am working on changing my recognition to work with differently shaped images.
-For the time being I am using constant images, but I do hope to be able to get the code to work for variable images.
+I have reorganised my files and have readjusted my vectors in each findingnumbers function to be more accurate for the image sizes (544x900) that I am now using. My code is also now able to recognise arithmetic operations from images that I have screenshotted. These images must have a white background and use 72 calibri, but so far that's okay. I am very likely going to find a vector conversion size between fonts and let the user enter the font size they wish to use, and scale the vectors like that.
 
-Thank you for reading and I hope you find this project interesting
+I also need to create a function that encapsulates my vector logic for different steps. This function will probably take the vector size and step type as parameters. 
+Step type will be like: 45 degrees downleft, 45 degrees downright, 45 degrees upright, 45 degreesupleft, up, down, left and right. And the vector size will just be the length of the vector, which will dictate how many pixels the code iterates through and checks if the pixels are black (and hence are still the shape)
