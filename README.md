@@ -14,3 +14,6 @@ the program uses vectors of a varying size and direction to check the values of 
 To demonstrate the logic for deconstructing a number into vectors, here is the number 2:
 
 ![image](https://user-images.githubusercontent.com/91832029/161427485-010699b0-a8c6-4cf4-92e0-5cdacc99098d.png)
+
+And here is the number 2 deconstructed into stages. We can notice that intemediary steps like the small upward arrow between stage 1 and 2 can simply be represented by increasing the y value of the terminal point for stage 1.
+![image](https://user-images.githubusercontent.com/91832029/161427697-228d5ac6-300b-43d7-9a9a-371df2c91257.png)
