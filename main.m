@@ -8,8 +8,8 @@ clear
 var = 'testing_images/nine_divided_by_four.png';
 
 pixelmatrix = pixeltomatrix(var);
-shaped_array = findingshapes(pixelmatrix);
-matrix = callerfunction(shaped_array);
+% shaped_array = findingshapes(pixelmatrix);
+matrix = callerfunction(pixelmatrix);
 
 % retrieving what operator was found in the picture and using that to determine the result of the
 % operation
