@@ -6,9 +6,11 @@
 
 % solution:
 % create three different matrices for each third / store each matrix in a different var
-% use these different vars and conditionals to check if there's a number in the first third etc.
+% use these different vars and conditionals to check if there's a number in the first third etc. by using the findingnumbers functions
+% if there is this number in the third that is being checked it will be stored in the functions array
 
 % this function will return an array of three values, which were derived from the conditionals
+% these values will be the first number, the operator, and the final number
 
 function matrices = callerfunction(matrix)
     [rows, columns] =  size(matrix);
