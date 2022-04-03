@@ -14,7 +14,7 @@ function matrices = callerfunction(matrix)
     [rows, columns] =  size(matrix);
     addpath("findingnumbers_functions/");  % ensuring I can access the findingnumbers functions as they are in their own file
 
-    num_columns_1 = round(0.5 * columns)-20;
+    num_columns_1 = round(0.5 * columns)-28;
     first_third = zeros(rows, num_columns_1);
     for row = 1:rows
         for column = 1:num_columns_1
@@ -22,7 +22,7 @@ function matrices = callerfunction(matrix)
         end
     end
 
-    num_columns_2 = round(0.5 * columns)+17;
+    num_columns_2 = round(0.5 * columns)+15;
     second_third = zeros(rows, abs(num_columns_2-num_columns_1));
     for row = 1:rows
         for column = num_columns_1:num_columns_2
@@ -41,7 +41,7 @@ function matrices = callerfunction(matrix)
 
     % now that we have our matrices we can check each value:
     % 1st third
-    fprintf("\nFinding the first number:\n\n");
+    fprintf("\nFinding the first number\n\n");
     first_third_num = 0;
     if(findingones(first_third)==1)
         first_third_num = 1;
@@ -61,30 +61,18 @@ function matrices = callerfunction(matrix)
         first_third_num = 8;
     elseif(findingnines(first_third)==1)
         first_third_num = 9;
-    else
-        fprintf("Invalid character for first number");
-        
     end
 
     % 2nd third
     fprintf("\n*******\n\n")
-    fprintf("Finding the operator:\n\n");
     if(findingplussymbol(second_third)==1)
         operator = "plus";
-    elseif(findingminuses(second_third)==1)
-        operator = "minus";
-    elseif(findingmultiplication(second_third)==1)
-        operator = "multiply";
-    elseif(findingdivision(second_third)==1)
-        operator = "divide";
     else
         operator = "invalid";
     end
     fprintf("\n*******\n\n")
 
     %final third
-    fprintf("\nFinding the second number:\n\n");
-
     final_third_num = 0;
     if(findingones(final_third)==1)
         final_third_num = 1;
@@ -104,8 +92,6 @@ function matrices = callerfunction(matrix)
         final_third_num = 8;
     elseif(findingnines(final_third)==1)
         final_third_num = 9;
-    else
-        fprintf("Invalid character for second number");
     end
     matrices = [first_third_num, operator, final_third_num];
     fprintf("\n******\n\n")

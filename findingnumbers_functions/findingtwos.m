@@ -37,6 +37,7 @@ function twos = findingtwos(matrix)
                 stage = 1;
                 xcrement_var = 0;
 
+
                 while ~test
                     % moving down the left branch of the two
                     if(stage==1) % commencing with the first vector that moves 8 down and left
