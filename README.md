@@ -20,3 +20,10 @@ And here is the number 2 deconstructed into stages. We can notice that intemedia
 ![image](https://user-images.githubusercontent.com/91832029/161427697-228d5ac6-300b-43d7-9a9a-371df2c91257.png)
 
 Currently I have produced the ability for the code to recognise arithmetic operations from screenshotted images. You can view the test files that my code works for under the testing_images. I recently added the ability to divide and multiply my code and it seems to work. You can also view the code under the findingnumbers_functions directory
+
+This is an example video of the program taking a screenshotted image of 9 divided by 4 and producing the correct output to two decimal places:
+
+https://user-images.githubusercontent.com/91832029/161465200-a0103275-4c55-4e06-8e00-3a517fcbdd2b.mov
+
+Sorry about the rushed nature of the video, github does not allow uploads greater than 10 mb
+
