@@ -16,7 +16,8 @@ function sevens = findingsevens(matrix)
                 % of the loop, i.e what vector to initialise
 
                 while ~test
-                    if(stage==1)
+                    if(stage==1) % iterating 44 pixels right (by increasing the columns) to reach the end of the seven
+                        % we can return this new column to the next stage, so that it can move from that position diagonally left
                         if(matrix(row, column+xcrement_var)==0 && xcrement_var < 44)
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var == 44)
@@ -29,7 +30,8 @@ function sevens = findingsevens(matrix)
                             sevens = 0;
                             return;
                         end
-                    elseif(stage==2)
+                    elseif(stage==2)% iterating 68 rows down and 34 columns to the left, and if all of the pixels we iterate over are black
+                        % we have a seven
                         if(matrix(new_row + 2*xcrement_var, new_column - xcrement_var)==0 && xcrement_var < 34)
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var == 34)
