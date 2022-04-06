@@ -18,7 +18,11 @@ function  one = findingones(matrix)
                 decrement_counter = 0;
 
                 while ~test
-                    if(matrix(row+decrement_counter, column)~=0)
+                    if(matrix(row+decrement_counter, column)~=0)% checking to see if the pixel we are iterating over is no longer black
+                        % and if so finding the distance we have moved, and finding that row, so we can check if we move proportionally left and
+                        % right on that row if our pixels are always black
+                        % also checking if the distance is greater than 50, because if it isn't it is likely not a 1, as a 1 in 72 font calibri is longer
+                        % than 50 pixels
                         final_row = row + decrement_counter-1;
                         if(final_row - row < 50)
                             fprintf("Not a one\n");
@@ -37,8 +41,10 @@ function  one = findingones(matrix)
                 test = false;
                 decrement_counter = 0;
                 while ~test
-                    if(matrix(final_row, column-decrement_counter)~=0)
-                        if(matrix(final_row, column+decrement_counter)==0)
+                    if(matrix(final_row, column-decrement_counter)~=0)% checking to see if the pixel is no longer black and if so finding the distance we
+                        % moved from the centre of the shape, and moving that same distance right
+                        if(matrix(final_row, column+decrement_counter)==0)% we now know that we can move proportionally left and right so we have to move
+                                % to the top of the shape and down the 45 degree diagonal. Hence we will end the conditional loop
 %                             fprintf("A one was found\n");
 %                             one = 1;
                             test = true;
