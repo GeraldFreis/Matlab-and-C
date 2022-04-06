@@ -5,17 +5,20 @@ function twos = findingtwos(matrix)
     % logic for twos:
     % we consider the left branch first:
         % we do this by having two vectors the first that moves from the first 
-        % zero on the top, down by 10 and left by 10. We move 10 rows up
+        % zero on the top, down by 8 and left by 8. We move 4 rows up
         % Then we move 4 down and 4 left, and the element to the left of that should be a 0
+        
     %if this works we move back to the top:
-        % we then move 11 down and 11 right
-        % if this is still a zero we move up 9, if this is a zero we move 15 down and 15 right
-        % if this is still a zero we move 10 down and left
-        % if this is still a zero we move 11 down
-        % if this is still a zero we move 32 left and 32 down
-        % if this is still a zero we move 5 down and then 45 right
-        % if this is a zero we have a 2
-
+        % we then move 6 down and 6 right
+        % if this is still a zero we move up 5, if this is a zero we move 12 down and 12 right
+    % this takes us to the rightmost point of the curve of the 2, we need to now move inward
+        % if this is still a zero we move 9 down and left
+        % if this is still a zero we move 6 down
+        % if this is still a zero we move 20 left and 20 down
+    % we are now at the bottom of the shape and we can now move along the bottom horizontal line to check if its a two
+        % if this is still a zero we move 32 right
+    % if this is a zero we have a 2
+    
     for row = 1:rows
         for column = 1:columns
 
