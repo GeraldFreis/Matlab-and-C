@@ -18,7 +18,7 @@ function eights = findingeights(matrix)
     % columnleft will be the left vector and columnright will be the right vector
     for row = 1:rows
         for column = 1:columns
-            if(matrix(row, column)==0)
+            if(matrix(row, column)==0). % checking if the pixel is black and if so implementing our logic to find 8
                 test = false;  % sentinel variable
                 xcrement_var = 0;
                 stage = 1;  % this is going to be the variable that contains the sta
@@ -28,10 +28,11 @@ function eights = findingeights(matrix)
                 new_row = row + 2;
 
                 while ~test
-                    if(stage==1)
+                    if(stage==1) % iterating 10 down and 20 left and right
                         if(matrix(new_row + xcrement_var, column_left - (2 * xcrement_var))==0 && matrix(new_row+xcrement_var, column_right + (2 * xcrement_var))==0 && xcrement_var < 10)
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var == 10)
+                        elseif(xcrement_var == 10) % if all of the pixels that have been covered are black and we reach the 10th row down we can 
+                            % progress onto the next vector to test
                             column_left = column_left - (2 * xcrement_var);
                             column_right = column_right + (2 * xcrement_var);
                             new_row = new_row + xcrement_var;
@@ -39,15 +40,16 @@ function eights = findingeights(matrix)
                             stage = stage + 1;
 %                             fprintf("%d, %d\n", new_row, column_right);
 %                             fprintf("%d, %d\n", new_row, column_left);
-                        else
+                        else % if one of the pixels are not black returning to the main script and stating that the number is not an eight
                             fprintf("Not a Eight\n");
                             eights = 0;
                             return;
                         end
-                    elseif(stage==2)
+                    elseif(stage==2) % moving 9 down on either side 
                         if(matrix(new_row + xcrement_var, column_left)==0 && matrix(new_row + xcrement_var, column_right)==0 && xcrement_var < 9)
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var == 9)
+                        elseif(xcrement_var == 9) % if all of the pixels that have been covered are black and we reach the 10th row down we can 
+                            % progress onto the next vector to test
                             new_row = new_row + xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
@@ -58,24 +60,26 @@ function eights = findingeights(matrix)
                             eights = 0;
                             return;
                         end
-                    elseif(stage == 3)
+                    elseif(stage == 3) % moving 18 down and moving 18 inwards on either side of the eight
                         if(matrix(new_row+xcrement_var, column_left + xcrement_var)==0 && matrix(new_row + xcrement_var, column_right - xcrement_var)==0 && xcrement_var <  18)
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==18)
+                        elseif(xcrement_var==18)% if all of the pixels that have been covered are black and we reach the 10th row down we can 
+                            % progress onto the next vector to test
                             new_row = new_row + xcrement_var-2;
                             column_left = column_left + xcrement_var;
                             column_right = column_right - xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
-                        else
+                        else % returning to the main script as not all of the pixels iterated across are black, meanining it is not an 8.
                             fprintf("Not a Eight\n");
                             eights = 0;
                             return;
                         end
-                    elseif(stage == 4)
+                    elseif(stage == 4) % moving 21 down and outwards as we are now in the second half of the 8.
                         if(matrix(new_row + xcrement_var, column_left - xcrement_var)==0 && matrix(new_row + xcrement_var, column_right + xcrement_var)==0 && xcrement_var < 21)
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==21)
+                        elseif(xcrement_var==21) % if all of the pixels that have been covered are black and we reach the 10th row down we can 
+                            % progress onto the next vector to test
                             new_row = new_row + xcrement_var+1;
                             column_left=  column_left - xcrement_var;
                             column_right = column_right + xcrement_var;
@@ -86,22 +90,24 @@ function eights = findingeights(matrix)
                             eights = 0;
                             return;
                         end
-                    elseif(stage == 5)
+                    elseif(stage == 5) % moving 17 down and inwards from each side of the 8
                         if(matrix(new_row + xcrement_var, column_left + xcrement_var)==0 && matrix(new_row + xcrement_var, column_right - xcrement_var)==0 && xcrement_var < 17)
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var == 17)
+                        elseif(xcrement_var == 17)% if all of the pixels that have been covered are black and we reach the 10th row down we can 
+                            % progress onto the next vector to test
                             new_row = new_row + xcrement_var;
                             column_left = column_left + xcrement_var;
                             column_right = column_right - xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
-                        else
+                        else % returning to the main script as not all the pixels iterated across are black
                             fprintf("Not a Eight\n");
 %                             fprintf("%d, %d, %d", xcrement_var, column_left+xcrement_var, new_row+xcrement_var);
                             eights = 0;
                             return;
                         end
-                    elseif(stage==6)
+                    elseif(stage==6) % iterating six columns inwards which should bring each of the two vectors to the centre of the 8, 
+                        % hence they should have the same column, and if so the number is an 8.
                         if(matrix(new_row, column_left + xcrement_var)==0 && matrix(new_row, column_right - xcrement_var)==0 && xcrement_var < 6)
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var == 6)
