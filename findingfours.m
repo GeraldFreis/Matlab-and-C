@@ -1,14 +1,17 @@
 function fours = findingfours(matrix)
     [rows, columns] = size(matrix);
 
-    % logic for threes:
+    % logic for fours:
     % we consider the left branch first:
-    % we move 5 down and then 17 down and left
-    % move 15 down
-    % move 15 down and left
-    % move 475-422
-    % move 286-308 down
-    % move 286-232 up
+        % we move 5 rows down  to centre the vector
+            % and then if we are still on a black pixel we move 17 rows down and 17 columns left
+        % if every pixel we have iterated over was black we can then move 15 rows down
+        % if every pixel we iterated over was black we can now move 15 rows down and 15 columns left
+    % we have now iterated over the left diagonal branch of the 4, and we must now iterate flat right and then up and down
+        % if every pixel we iterated over was black we can now move 47 columns to the right as this will take us down the horizontal branch of the 4
+        % If all of the pixels iterated over in the previous vector was black we can move 15 columns backwards into the centre of the vertical branch of the 4
+        % we need to now move 22 pixels down and then 56 pixels up, and if every pixel we iterate over is black we have a 4, as all of the vector tests
+        % have passed. And we modeled each vector test against the 4, so we now know that we have a 4.
 
 
     for row = 1:rows
