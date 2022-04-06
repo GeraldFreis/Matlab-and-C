@@ -1,7 +1,8 @@
 %% This function is going to take the matrix composed in pixeltomatrix and look for adjacent elements to find shapes
 
-% iteratively taking the value of all pixels less than 50 and capturing
-% that in a new array
+% iteratively taking the value of all pixels that are black, and making every other pixel white
+% producing a new matrix from this and returning that cleaned matrix.
+
 function array_of_shapes = findingshapes(matrix)
     [rows, columns] = size(matrix);
     array_of_shapes = zeros(rows, columns/3);
