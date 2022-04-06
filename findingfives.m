@@ -22,7 +22,8 @@ function fives = findingfives(matrix)
                 % of the loop, i.e what vector to initialise
 
                 while ~test
-                    if(stage==1)
+                    if(stage==1)% moving 30 columns to the right as this should take us to the end of the top branch of the 5. If this passes 
+                        % we have passed the first stage of our tests to check if the number is a 5.
                         if(matrix(row, column+xcrement_var)==0 && xcrement_var < 30)
                             xcrement_var =  xcrement_var + 1;
                         elseif(xcrement_var == 30)
@@ -34,7 +35,7 @@ function fives = findingfives(matrix)
                             fives = 0;
                             return;
                         end
-                    elseif(stage==2)
+                    elseif(stage==2) % moving 33 down to start moving right to reach the curve
                         if(matrix(row+xcrement_var, column)==0 && xcrement_var < 33)
                             xcrement_var =  xcrement_var + 1;
                         elseif(xcrement_var == 33)
@@ -47,10 +48,12 @@ function fives = findingfives(matrix)
                             fives = 0;
                             return;
                         end
-                    elseif(stage == 3)
+                    elseif(stage == 3) % moving right so that we can start the curve of the 5, if all of the pixels while moving right are
+                        % still black then we can progress to the next stage
                         if(matrix(new_row, new_column+xcrement_var)==0 && xcrement_var < 23)
                             xcrement_var =  xcrement_var + 1;
-                        elseif(xcrement_var == 23)
+                        elseif(xcrement_var == 23)  % if all of the pixels are black we can start moving down to the next stage where we move around the
+                            % curve
                             stage = stage + 1;
                             new_column = new_column + xcrement_var;
                             xcrement_var = 0;
@@ -59,10 +62,11 @@ function fives = findingfives(matrix)
                             fives = 0;
                             return;
                         end
-                    elseif(stage == 4)
+                    elseif(stage == 4) % moving outwards to reach the rightmost point of the curve of the five
                         if(matrix(new_row + xcrement_var, new_column+xcrement_var)==0 && xcrement_var < 16)
                             xcrement_var =  xcrement_var + 1;
-                        elseif(xcrement_var == 16)
+                        elseif(xcrement_var == 16) % as we have passed the tests to ensure that all pixels we have passed over are still black
+                            % we can now move to the next stage.
                             stage = stage + 1;
                             new_row = new_row + xcrement_var + 4;
                             new_column = new_column + xcrement_var;
@@ -72,7 +76,7 @@ function fives = findingfives(matrix)
                             fives = 0;
                             return;
                         end
-                    elseif(stage == 5)
+                    elseif(stage == 5) % moving inwards to move to the bottom of the 5
                         if(matrix(new_row - xcrement_var, new_column-xcrement_var)==0 && xcrement_var < 18)
                             xcrement_var =  xcrement_var + 1;
                         elseif(xcrement_var == 18)
@@ -85,7 +89,8 @@ function fives = findingfives(matrix)
                             fives = 0;
                             return;
                         end
-                    elseif(stage == 6)
+                    elseif(stage == 6) % checking the tail end of the shape to ensure that it matches with that of a 5, and if so
+                        % we have a five
                         if(matrix(new_row, new_column-xcrement_var)==0 && xcrement_var < 27)
                             xcrement_var =  xcrement_var + 1;
                         elseif(xcrement_var == 27)
