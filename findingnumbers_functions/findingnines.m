@@ -1,9 +1,40 @@
 function nines = findingnines(matrix)
     [rows, columns] = size(matrix);
     % logic for nines:
-        % here we will initially do what we did for 8 and iterate through both halves of the nine at the
-        % same time
-        % after that is no longer possible we will continue with the column_right variable
+        % as with the number 8, we can multithread nine by taking two vectors at the same time, around
+            % the initial circular aspect of the nine
+            % we will do this by initially moving 5 rows and columns outwards from the centre of the top of
+            % the 9, which we will adjust by having new variables for each vector
+                % column_left will be the updated column from which the left vector must initialise itself
+                    % every stage
+                % column_right will be the updated column from which the right vector must initialise itself
+                    % after every stage
+                % new_row will be the row for both vectors, until the proportions need to differ (i.e we need
+                    % to focus on applying either vector individually, at which point we will use new_row for the
+                    % row element of the right vector, and new_row_left as the element for the left vector.
+            % if every pixel that we iterated across in the previous vectors was black, we have passed
+            % the first stage, and hence can move another 10 rows and columns outward with each vector
+            % if this passes we can now move 12 rows down with either vector, as we are on the outside
+                % of the curve of the nine on either side of the nine.
+
+            % now we need to focus on the left vector, as our right vector is on the almost vertical
+            % right side of the nine.
+                % first we will move 6 down and right to take us inwards from the outside of the circular
+                % curve of the 9, and if every pixel iterated over is black we just need to move 13
+                % pixels to the right. This is because we are on the almost horizontal middle branch of
+                % the 9. By moving 13 the terminal point for the left vector is on the vertical branch of
+                % the 9.
+
+            % now we can continue with the right vector
+                % as we are along the vertical branch of the 9 we want to move downwards, down
+                % and left, and the leftwards and this will bring us to the end of the 'tail' of the 9
+                % We will do this by iterating 19 rows down with the right vector
+                % if all of the pixels it iterates over are black, we will then move 11 columns down and
+                % left
+                % if all of these pixels are once more black, it moves 19 columns left. And if that pixel
+                % is still black we have passed all of our tests for the number 9, and hence the number
+                % we are iterating over is a nine.
+                % we can then return nines = 1; as one nine was found and return to the calling function
     for row = 1:rows
         for column = 1:columns
             if(matrix(row, column)==0)
