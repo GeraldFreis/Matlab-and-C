@@ -1,6 +1,6 @@
 function fives = findingfives(matrix)
-    [rows, columns] = size(matrix);
-    logic for five:
+    [rows, columns] = size(matrix); % finding the rows and columns of the matrix, so that we can iterate over every pixel
+    % logic for five:
     % fives, from the highest and most leftmost point have a right branch
         % for font 72 calibri we move 30 pixels right initially
         % if all of the pixels we iterate across are black then we have passed the vector test for the first stage of the 5
@@ -13,15 +13,20 @@ function fives = findingfives(matrix)
         % If all of the pixels in the previous test are black we can then move 16 rows down and 16 columns to the right. 
         % just like the previous tests, we will move 18 down and to the left, which takes us inwards from the curve
         % if all of these pixels are still black we will move 27 to the left for the tail of the 5, and if these tests pass we have a 5.
+        
+    % iterating over every pixel in the matrix and if the pixel is black applying our logic to test if the pixel is attached to a five.
     for row = 1:rows
         for column = 1:columns
-            if(matrix(row, column)==0)
+            if(matrix(row, column)==0) % if the pixel is zero (black) implementing our logic
+                
+                % initialising variables
                 test = false;  % sentinel variable
-                xcrement_var = 0;
+                xcrement_var = 0; % variable to contain the increment factor to increment over pixels by changing the x and y (column and row)
+
                 stage = 1;  % this is going to be the variable that contains the sta
                 % of the loop, i.e what vector to initialise
 
-                while ~test
+                while ~test % implementing the stages
                     if(stage==1) % moving 30 columns to the right as this should take us to the end of the top branch of the 5. If this passes 
                         % we have passed the first stage of our tests to check if the number is a 5.
                         if(matrix(row, column+xcrement_var)==0 && xcrement_var < 30)
@@ -38,10 +43,10 @@ function fives = findingfives(matrix)
                     elseif(stage==2) 
                         if(matrix(row+xcrement_var, column)==0 && xcrement_var < 33) % moving 33 down to start moving right to reach the curve
                             xcrement_var =  xcrement_var + 1;
-                        elseif(xcrement_var == 33)
+                        elseif(xcrement_var == 33) % if every pixel passed over was black and we have reached the required length of the vector
                             stage = stage + 1;
                             new_row = row + xcrement_var;
-                            new_column = column;
+                            new_column = column;  % updating the  column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             xcrement_var = 0;
                         else % if every pixel passed over was not black returning to the main function
                             fprintf("Not a five\n");                            
@@ -54,7 +59,7 @@ function fives = findingfives(matrix)
                             xcrement_var =  xcrement_var + 1;
                         elseif(xcrement_var == 23)
                             stage = stage + 1;
-                            new_column = new_column + xcrement_var;
+                            new_column = new_column + xcrement_var;  % updating the column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             xcrement_var = 0;
                         else % if every pixel passed over was not black returning to the main function
                             fprintf("Not a five\n");
@@ -66,7 +71,7 @@ function fives = findingfives(matrix)
                             xcrement_var =  xcrement_var + 1;
                         elseif(xcrement_var == 16) 
                             stage = stage + 1;
-                            new_row = new_row + xcrement_var + 4;
+                            new_row = new_row + xcrement_var + 4;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             new_column = new_column + xcrement_var;
                             xcrement_var =0;
                         else % if every pixel passed over was not black returning to the main function
@@ -80,7 +85,7 @@ function fives = findingfives(matrix)
                         elseif(xcrement_var == 18) % as we have passed the tests to ensure that all pixels we have passed over are still black
                             % we can now move to the next and final stage
                             stage = stage + 1;
-                            new_row = new_row + xcrement_var;
+                            new_row = new_row + xcrement_var;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             new_column = new_column - xcrement_var;
                             xcrement_var = 0;
                         else % if every pixel passed over was not black returning to the main function
@@ -92,12 +97,11 @@ function fives = findingfives(matrix)
                         % ending the while loop and returning that a five was found
                         if(matrix(new_row, new_column-xcrement_var)==0 && xcrement_var < 27)
                             xcrement_var =  xcrement_var + 1;
-                        elseif(xcrement_var == 27)
+                        elseif(xcrement_var == 27) % if every pixel iterated over was black we can exit the while loop and return that the number is a 5 to the calling function
                             test = true;
                         else % if every pixel passed over was not black returning to the main function
                             fprintf("Not a five\n");
 %                             fprintf("1");
-%                             fprintf("%d, %d", row, column+xcrement_var);
                             fives = 0;
                             return;
                         end
