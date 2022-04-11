@@ -20,12 +20,15 @@ function sixes = findingsixes(matrix)
             % moves 6 down and left by increasing rows and decreasing columns
             % now we check if the value next to that is a zero and if so we are back at the 'stem' of the
             % 6
-        % 
+    
+    % iterating over every pixel in the matrix and if that pixel is black implementing our logic to test if the number that pixel is attached to is a 6
     for row = 1:rows
         for column = 1:columns
             if(matrix(row, column)==0)
-                test = false;  % sentinel variable
-                xcrement_var = 0;
+                
+                % initialising the variables
+                test = false;  % sentinel variable to control the while loop
+                xcrement_var = 0; % variable to contain the increment factor to increment over pixels by changing the x and y (column and row) 
                 stage = 1;  % this is going to be the variable that contains the sta
                 % of the loop, i.e what vector to initialise
 
@@ -33,9 +36,9 @@ function sixes = findingsixes(matrix)
                     if(stage==1) % moving 6 rows down and 12 columns right, this is the right branch of the six, and if all of these 
                         % pixels are black then we have passed the first test for the top of the 6, and we can now move left and around
                         % the six
-                        if(matrix(row+xcrement_var, column+2*xcrement_var)==0 && xcrement_var < 6)
+                        if(matrix(row+xcrement_var, column+2*xcrement_var)==0 && xcrement_var < 6) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var == 6)
+                        elseif(xcrement_var == 6) 
                             stage = stage + 1;
                             xcrement_var=0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
@@ -46,11 +49,11 @@ function sixes = findingsixes(matrix)
                     % continuign with the rest of the six
                     elseif(stage == 2) % moving 27 pixels down and left around the 6 so that we are now in the middle of the six
                         % if every pixel we iterate over is black then we have passed this test
-                        if(matrix(row+xcrement_var, column-xcrement_var)==0 && xcrement_var < 27)
+                        if(matrix(row+xcrement_var, column-xcrement_var)==0 && xcrement_var < 27) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var==27)
                             stage = stage + 1;
-                            new_row = row + xcrement_var;
+                            new_row = row + xcrement_var;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             new_column = column - xcrement_var;
                             xcrement_var = 0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
@@ -61,11 +64,11 @@ function sixes = findingsixes(matrix)
                     
                     elseif(stage == 3) % iterating 7 rows down and 7 columns to the right inwards from the left-most point of the six.
                         % if every pixel we iterate over is black then we have passed the test for this stage
-                        if(matrix(new_row+xcrement_var, new_column+xcrement_var)==0 && xcrement_var < 7)
+                        if(matrix(new_row+xcrement_var, new_column+xcrement_var)==0 && xcrement_var < 7) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var==7)
                             stage = stage + 1;
-                            new_row = new_row + xcrement_var;
+                            new_row = new_row + xcrement_var;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             new_column = new_column + xcrement_var;
                             xcrement_var = 0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
@@ -76,11 +79,11 @@ function sixes = findingsixes(matrix)
                     % iterating 28 rows down as this will take us to the centre of the left curve around the six, from which we can move inwards around
                     % around the curve
                     elseif(stage == 4)
-                        if(matrix(new_row+xcrement_var, new_column)==0 && xcrement_var < 28)
+                        if(matrix(new_row+xcrement_var, new_column)==0 && xcrement_var < 28) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var==28)
                             stage = stage + 1;
-                            new_row = new_row + xcrement_var;
+                            new_row = new_row + xcrement_var;  % updating the row so that the terminal row and column of this vector are the initial row and columns of the next vector
                             xcrement_var = 0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a six\n");
@@ -90,11 +93,11 @@ function sixes = findingsixes(matrix)
                     
                     % iterating 10 rows and columns down and right so that we have moved a little inward into the curve of the six
                     elseif(stage==5)
-                        if(matrix(new_row+xcrement_var, new_column+xcrement_var)==0 && xcrement_var < 10)
+                        if(matrix(new_row+xcrement_var, new_column+xcrement_var)==0 && xcrement_var < 10) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var==10)
                             stage = stage + 1;
-                            new_row = new_row + xcrement_var;
+                            new_row = new_row + xcrement_var;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             new_column = new_column + xcrement_var;
                             xcrement_var = 0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
@@ -104,11 +107,11 @@ function sixes = findingsixes(matrix)
                         end
                     % moving 16 columns to the right as we are now at the bottom of the 6, and we need to, afterwards, move right and upwards
                     elseif(stage==6)
-                        if(matrix(new_row, new_column+xcrement_var)==0 && xcrement_var < 16)
+                        if(matrix(new_row, new_column+xcrement_var)==0 && xcrement_var < 16) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var==16)
                             stage = stage + 1;
-                            new_column = new_column + xcrement_var;
+                            new_column = new_column + xcrement_var; % updating the column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             xcrement_var = 0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a six\n");
@@ -118,11 +121,11 @@ function sixes = findingsixes(matrix)
                     % moving 14 rows upwards and 14 columns to the right around the curve of the 6, and if every pixel we iterate over is still black we
                     % have passed this stage
                     elseif(stage==7)
-                        if(matrix(new_row-xcrement_var, new_column+xcrement_var)==0 && xcrement_var < 14)
+                        if(matrix(new_row-xcrement_var, new_column+xcrement_var)==0 && xcrement_var < 14) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var==14)
                             stage = stage + 1;
-                            new_row = new_row - xcrement_var;
+                            new_row = new_row - xcrement_var;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             new_column = new_column + xcrement_var;
                             xcrement_var = 0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
@@ -134,11 +137,11 @@ function sixes = findingsixes(matrix)
                     % over is still black we have passed this stage
                     
                     elseif(stage==8) 
-                        if(matrix(new_row-xcrement_var, new_column)==0 && xcrement_var < 12)
+                        if(matrix(new_row-xcrement_var, new_column)==0 && xcrement_var < 12) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var==12)
                             stage = stage + 1;
-                            new_row = new_row - xcrement_var;
+                            new_row = new_row - xcrement_var;  % updating the row so that the terminal row and column of this vector are the initial row and columns of the next vector
                             xcrement_var = 0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a six\n");
@@ -149,11 +152,11 @@ function sixes = findingsixes(matrix)
                     
                     elseif(stage == 9) % moving 14 rows up and left from the rightmost part of the 6's lower loops, and if every pixel we
                     % iterate over is still black we have passed this stage
-                        if(matrix(new_row-xcrement_var, new_column-xcrement_var)==0 && xcrement_var < 14)
+                        if(matrix(new_row-xcrement_var, new_column-xcrement_var)==0 && xcrement_var < 14) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==14)
+                        elseif(xcrement_var==14) % if every pixel iterated over was black we have made it to the end of this vector and hence can move to the next stage / vector
                             stage = stage + 1;
-                            new_row = new_row - xcrement_var;
+                            new_row = new_row - xcrement_var; % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                             new_column = new_column - xcrement_var;
                             xcrement_var = 0;
                         else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
@@ -165,9 +168,9 @@ function sixes = findingsixes(matrix)
                         end
                         
                     elseif(stage==10) % moving 7 columns left, across the top of the loop
-                        if(matrix(new_row, new_column-xcrement_var)==0 && xcrement_var < 7)
+                        if(matrix(new_row, new_column-xcrement_var)==0 && xcrement_var < 7) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==7)
+                        elseif(xcrement_var==7) % if every pixel iterated over was black we can continue with the next test
                             stage = stage + 1;
                             new_column = new_column - xcrement_var;
                             xcrement_var = 0;
@@ -178,21 +181,16 @@ function sixes = findingsixes(matrix)
                         end
                     elseif(stage==11) % moving 6 rows down and 6 columns left and if this test passes and the pixel to the left of it is still black
                         % we have a six
-                        if(matrix(new_row+xcrement_var, new_column-xcrement_var)==0 && xcrement_var < 6)
+                        if(matrix(new_row+xcrement_var, new_column-xcrement_var)==0 && xcrement_var < 6) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==6)
+                        elseif(xcrement_var==6) % if every pixel iterated over was black we can continue with the next test
                             new_row = new_row - xcrement_var;
-                            new_column = new_column + xcrement_var;
+                            new_column = new_column + xcrement_var;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vectorv
                             xcrement_var = 0;
-                            if(matrix(new_row, new_column-1==0))
-                                stage = stage + 1;
+                            if(matrix(new_row, new_column-1==0)) % if the pixel to the left is black we have passed the final vector and hence can close the while loop
+                                test = true;
                             end
-
-                        else
-                            test=true;
                         end
-                    else
-                        test = true;
                     end
                 
                 end
