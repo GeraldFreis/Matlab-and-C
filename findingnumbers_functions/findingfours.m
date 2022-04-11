@@ -17,59 +17,60 @@ function fours = findingfours(matrix)
     for row = 1:rows
         for column = 1:columns
             if(matrix(row, column)==0)
-                initial_row = row + 4;  % moving down so that we are in the centre of the shape
+                initial_row = row + 5;  % moving down so that we are in the centre of the shape
                 initial_column = column;
                 
                 % program takes 0.067 seconds just with for loops and 0.045 with the modular
                 % findingnumbers function
                 
                 % the first stage, where we want to move 7 down and left
-                 if(findingnumbers("downleft", 7, initial_row, initial_column, matrix)~=true)
-                     fprintf("Not a four\n");
+                 if(findingnumbers("downleft", 7, initial_row, initial_column, matrix)~=true) % if every pixel iterated over in the vector is not black
+                     fprintf("Not a 4\n");
                      fours = 0;
                      return;
-                 else
-                     new_row = initial_row + 15;
+                 else % if every pixel iterated over in the vector was black
+                     new_row = initial_row + 15;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                      new_column = initial_column - 7;
                  end
                 
                  % the second stage, where we want to move 12 down and left
-                if(findingnumbers("downleft", 12, new_row, new_column, matrix)~=true)
-                     fprintf("Not a four\n");
+                if(findingnumbers("downleft", 12, new_row, new_column, matrix)~=true) % if every pixel iterated over in the vector is not black
+                     fprintf("Not a 4\n");
                      fours = 0;
                      return;
-                 else
-                     new_row = new_row + 20;
+                else % if every pixel iterated over in the vector was black
+                     new_row = new_row + 20;  % updating the row and column so that the terminal row and column of this vector are the initial row and columns of the next vector
                      new_column = new_column - 12;
                  end
                 
                  % the third stage where we are now on the horizontal of the four and to test if it is a
                  % four, we need to move 36 horizontally right
-                if(findingnumbers("right", 36, new_row, new_column, matrix)~=true)
-                     fprintf("Not a four\n");
+                if(findingnumbers("right", 36, new_row, new_column, matrix)~=true) % if every pixel iterated over in the vector is not black
+                     fprintf("Not a 4\n");
                      fours = 0;
                      return;
-                 else
+                else % if every pixel iterated over in the vector was black
                      new_column = new_column + 26;  % 26 as we have to move 10 back inward to be in the vertical component of 4
                 end
                 
                 % the fourth stage where we need to move to the bottom of the vertical component of the 4
-                if(findingnumbers("down", 12, new_row, new_column, matrix)~=true)
-                     fprintf("Not a four\n");
+                if(findingnumbers("down", 12, new_row, new_column, matrix)~=true) % if every pixel iterated over in the vector is not black
+                     fprintf("Not a 4\n");
                      fours = 0;
                      return;
-                 else
-                     new_row = new_row + 12;
+                else % if every pixel iterated over in the vector was black
+                     new_row = new_row + 12;  % updating the row so that the terminal row and column of this vector are the initial row and columns of the next vector
                 end
                 
                 % the final stage where we need to iterate to the top of the 4, and if all pixels passed
                 % over are black we have a 4.
-                if(findingnumbers("up", 7, new_row, new_column, matrix)~=true)
-                     fprintf("Not a four\n");
+                if(findingnumbers("up", 7, new_row, new_column, matrix)~=true) % if every pixel iterated over in the vector is not black
+                     fprintf("Not a 4\n");
                      fours = 0;
                      return;
                  end
-
+                
+                 % as we have passed all vector tests we have a four
                 fprintf("A four was found\n");
                 fours = 1;
                 return;
