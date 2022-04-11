@@ -1,6 +1,6 @@
 %%finding twos in the matrices
 function twos = findingtwos(matrix)
-    [rows, columns] = size(matrix);
+    [rows, columns] = size(matrix); % finding the rows and columns of the matrix so we can iterate over every pixel in the matrix
 
     % logic for twos:
     % we consider the left branch first:
@@ -15,7 +15,9 @@ function twos = findingtwos(matrix)
         % if this is still a zero we move 32 left and 32 down
         % if this is still a zero we move 5 down and then 45 right
         % if this is a zero we have a 2
-
+    
+    % iterating over every pixel in the matrix and testing if the pixel is black (0) and if so implementing our logic to test if the number
+    % attached to this pixel is a two
     for row = 1:rows
         for column = 1:columns
 
@@ -25,20 +27,18 @@ function twos = findingtwos(matrix)
 
                 % moving down the left branch of the 2
                 for i = 1:8
-                    if(matrix(row+i, column-i)~=0)
-%                        fprintf("1");
+                    if(matrix(row+i, column-i)~=0) % if the current pixel iterated over is not black we do not have a two and hence return to the calling function w this information
                         fprintf("not a two\n");
                         twos = 0;
                         return;
-                    elseif(i==8)
+                    elseif(i==8) % if every pixel iterated over was black we update the row and column to the terminal row and colum of this vector
                         new_row = row+i-4; % moving the row back up
                         new_column = column-i;
                     end
                 end
 
                 for i = 1:4
-                    if(matrix(new_row+i, new_column-i)~=0)
-%                         fprintf("2");
+                    if(matrix(new_row+i, new_column-i)~=0) % if the current pixel iterated over is not black we do not have a two and hence return to the calling function w this information
                         fprintf("not a two\n");
                         twos = 0;
                         return;                       
@@ -48,24 +48,25 @@ function twos = findingtwos(matrix)
                 % as the number has passed these tests, we can move back to the top of the two and try
                 % the rest of the shape
                 for i = 1:6
-                    if(matrix(row+i, column+i)~=0)
+                    if(matrix(row+i, column+i)~=0) % if the current pixel iterated over is not black we do not have a two and hence return to the calling function w this information
                         fprintf("not a two\n");
                          fprintf("3");
                         twos = 0;
                         return;
-                    elseif(i==6)
+                    elseif(i==6) % if every pixel iterated over was black we update the row and column to the terminal row and colum of this vector
                         new_row = row+i-5;  % balancing the movement
                         new_column = column+i;
                     end
                 end
-                % moving right again
+                
+                % moving right and down to the rightmost part of the curve of the 2.
                 for i = 1:12
-                    if(matrix(new_row+i, new_column+i)~=0)
+                    if(matrix(new_row+i, new_column+i)~=0) % if the current pixel iterated over is not black we do not have a two and hence return to the calling function w this information
                         fprintf("not a two\n");
                          fprintf("4");
                         twos = 0;
                         return;
-                    elseif(i==12)
+                    elseif(i==12) % if every pixel iterated over was black we update the row and column to the terminal row and colum of this vector
                         new_row = new_row + i+5;
                         new_column = new_column + i;
                     end
@@ -73,26 +74,22 @@ function twos = findingtwos(matrix)
 
                %moving back inwards:
                for i = 1:9
-                   if(matrix(new_row+i, new_column-i)~=0)
+                   if(matrix(new_row+i, new_column-i)~=0) % if the current pixel iterated over is not black we do not have a two and hence return to the calling function w this information
                         fprintf("not a two\n");
-%                         fprintf("5");
                         twos = 0;
                         return;
-                   elseif(i==9)
+                   elseif(i==9) % if every pixel iterated over was black we update the row and column to the terminal row and colum of this vector
                        new_row = new_row + i + 6;
                        new_column = new_column - i;
-%                        fprintf("%d, %d", new_row, new_column);
-
                    end
                end
 
                for i = 1:20
-                   if(matrix(new_row + i, new_column - i)~=0)
+                   if(matrix(new_row + i, new_column - i)~=0) % if the current pixel iterated over is not black we do not have a two and hence return to the calling function w this information
                        fprintf("not a two\n");
-%                        fprintf("6");
                        twos = 0;
                        return;
-                   elseif(i==20)
+                   elseif(i==20) % if every pixel iterated over was black we update the row and column to the terminal row and colum of this vector
                        new_row = new_row + i;
                        new_column = new_column - i;
 
@@ -101,17 +98,16 @@ function twos = findingtwos(matrix)
 
                % now iterating to the bottom right of the bottom branch to determine if its a two
                for i = 1:32
-                   if(matrix(new_row, new_column +i)~=0)
-                       fprintf("not a two\n");
-%                        fprintf("7");
-                       fprintf("%d, %d ",new_row, new_column+i);
+                   if(matrix(new_row, new_column +i)~=0) % if the current pixel iterated over is not black we do not have a two and hence return to the calling function w this information
+                       fprintf("not a two\n"); 
                        twos = 0;
                        return;
-                   elseif(i==32)
+                   elseif(i==32) % if every pixel iterated over was black we update the row and column to the terminal row and colum of this vector
                        new_column = new_column + i;
                    end
                end
-
+                
+               % as all of the vector tests have passed, we know that we have a two and need to return this information to the calling function
                fprintf("A two was found\n");
                twos = 1;
                return;
