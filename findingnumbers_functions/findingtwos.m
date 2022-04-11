@@ -27,23 +27,26 @@ function twos = findingtwos(matrix)
         % if this is still a zero we move 20 left and 20 down
         % if this is still a zero we move 32 right
         % if this is a zero we have a 2
-
+    
+    % iterating over every pixel in the provided matrix and if that pixel is black, implementing our logic to find twos on the surrounding number
     for row = 1:rows
         for column = 1:columns
 
             % testing to check if the pixel is a zero (black) and if so progression w our logic
             if(matrix(row, column)==0)
-                test = false; % sentinal test
-                stage = 1;
-                xcrement_var = 0;
-
+                % initialising the local variables
+                test = false; % sentinal test to control the while loop
+                stage = 1; % variable to dictate what vectore we need to implement, depending on what stage of the 2 we are
+                xcrement_var = 0; % variable to contain the increment factor to increment over pixels by changing the x and y (column and row), 
+                % which will emulate a vector as the terminal point of the vector is changing with every change of the xcrement_var.
 
                 while ~test
                     % moving down the left branch of the two
                     if(stage==1) % commencing with the first vector that moves 8 down and left
-                        if(matrix(row+xcrement_var, column-xcrement_var)==0 && xcrement_var < 8)
+                        if(matrix(row+xcrement_var, column-xcrement_var)==0 &&...
+                        xcrement_var < 8) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==8)
+                        elseif(xcrement_var==8) % if every pixel iterated over was black we have made it to the end of this vector and hence can move to the next stage / vector
                             new_row = row + xcrement_var-4; % updating the row and moving it four up for the next vector
                             new_column = column - xcrement_var;
                             stage = stage + 1; % increasing the stage
@@ -54,69 +57,74 @@ function twos = findingtwos(matrix)
                             return; 
                         end
                     elseif(stage==2)
-                        if(matrix(new_row+xcrement_var, new_column-xcrement_var)==0 && xcrement_var < 4)
+                        if(matrix(new_row+xcrement_var, new_column-xcrement_var)==0 &&...
+                        xcrement_var < 4) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var+ 1;
-                        elseif(xcrement_var == 4)
+                        elseif(xcrement_var == 4) % if every pixel iterated over was black we have made it to the end of this vector and hence can move to the next stage / vector
                             xcrement_var = 0;
                             stage = stage + 1;
                             % here I don't have to update the new row and new column as the left branch
                             % of the two has passed its tests, and thus I need to move back to the
                             % initial row and column and continue with the rest of the 2.
-                        else
+                        else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a two\n");
                             twos = 0;
                             return;
                         end
                     % continuing with the rest of the two shape
                     elseif(stage==3) % moving right and down to follow the right shape of the 2
-                        if(matrix(row+xcrement_var, column+xcrement_var)==0 && xcrement_var < 6)
+                        if(matrix(row+xcrement_var, column+xcrement_var)==0 && ...
+                        xcrement_var < 6) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==6)
+                        elseif(xcrement_var==6) % if every pixel iterated over was black we have made it to the end of this vector and hence can move to the next stage / vector
                             new_row = row + xcrement_var-5; % updating the row and moving it four up for the next vector
                             new_column = column + xcrement_var;
                             stage = stage + 1; % increasing the stage
                             xcrement_var = 0; % resetting the increment variable so that the next vector can move independently with a new length
-                        else 
+                        else  % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a two\n");
                             twos = 0;
                             return; 
                         end
                     elseif(stage==4) % continuing to move down the right size of the 2, but moving until the rightmost part of the circular part of the two
-                        if(matrix(new_row+xcrement_var, new_column+xcrement_var)==0 && xcrement_var < 12)
+                        if(matrix(new_row+xcrement_var, new_column+xcrement_var)==0 && ...
+                        xcrement_var < 12) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==12)
+                        elseif(xcrement_var==12) % if every pixel iterated over was black we have made it to the end of this vector and hence can move to the next stage / vector
                             new_row = new_row + xcrement_var + 5; % updating the initial row and column that must be used for the next vector
                             new_column = new_column + xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
-                        else
+                        else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a two\n");
                             twos = 0;
                             return;
                         end
                     % moving inwards
                     elseif(stage==5) % moving inwards and thus increasing the rows and decreasing the columns
-                        if(matrix(new_row+xcrement_var, new_column-xcrement_var)==0 && xcrement_var < 9)
+                        if(matrix(new_row+xcrement_var, new_column-xcrement_var)==0 && ...
+                        xcrement_var < 9) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==9)
+                        elseif(xcrement_var==9) % if every pixel iterated over was black we have made it to the end of this vector and hence can move to the next stage / vector
                             new_row = new_row + xcrement_var + 6; % updating the initial row and column that must be used for the next vector
                             new_column = new_column - xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
-                        else
+                        else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a two\n");
                             twos = 0;
                             return;
                         end
                     elseif(stage==6) % continuing to move inwards but a greater length
-                        if(matrix(new_row+xcrement_var, new_column-xcrement_var)==0 && xcrement_var < 20)
+                        if(matrix(new_row+xcrement_var, new_column-xcrement_var)==0 && ...
+                        xcrement_var < 20) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==20)
+                        elseif(xcrement_var==20) % if every pixel iterated over was black we have made it to the end of this vector and hence can move to the next stage / vector
                             new_row = new_row + xcrement_var; % updating the initial row and column that must be used for the next vector
                             new_column = new_column - xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
-                        else
+                        else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a two\n");
                             twos = 0;
                             return;
@@ -124,24 +132,24 @@ function twos = findingtwos(matrix)
                     % we are now at the bottom of the 2 and to prove it is a two we just need to move
                     % horizontally right 32 pixels. If that is a zero then we have a two
                     elseif(stage==7) %
-                        if(matrix(new_row, new_column+xcrement_var)==0 && xcrement_var < 32)
+                        if(matrix(new_row, new_column+xcrement_var)==0 && ...
+                        xcrement_var < 32) % if the current pixel iterated over is still black and the length of the current vector is less than that required
                             xcrement_var = xcrement_var + 1;
-                        elseif(xcrement_var==32)  % 
-                            stage = stage + 1;
+                        elseif(xcrement_var==32)  
+                            test = true; % ending the while loop
                             % we do not need to update the values as this is the final test, we just need
                             % to increase the stage so that the else condition can be triggered
-                        else
+                        else % if a pixel we iterate over is not black returning to the main file as the vector test has not been passed
                             fprintf("Not a two\n");
                             twos = 0;
                             return;
                         end
-                    else
-                        fprintf("A two was found\n");
-                        twos = 1;
-                        return;
                     end
-
                 end
+                fprintf("A two was found\n");
+                twos = 1;
+                return;
+
             end
         end
     end
