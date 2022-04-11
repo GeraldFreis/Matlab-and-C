@@ -1,5 +1,5 @@
 function fours = findingfours(matrix)
-    [rows, columns] = size(matrix);
+    [rows, columns] = size(matrix); % finding the rows and columns of the matrix so that we can iterate over every pixel in the matrix
 
 % logic for fours:
     % we consider the left branch first:
@@ -13,10 +13,13 @@ function fours = findingfours(matrix)
     % we need to now move 22 pixels down and then 56 pixels up, and if every pixel we iterate over is black we have a 4, as all of the vector tests
     % have passed. And we modeled each vector test against the 4, so we now know that we have a 4.
 
-
+    % iterating over every pixel in the matrix and if that pixel is black (0) implementing our logic to test if the shape attached to the pixel
+    % is a four
     for row = 1:rows
         for column = 1:columns
-            if(matrix(row, column)==0)
+            if(matrix(row, column)==0) % if the pixel is black implementing our logic
+                
+                % initialising our variables
                 initial_row = row + 6;
                 initial_column = column;
 
