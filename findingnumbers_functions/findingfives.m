@@ -2,17 +2,17 @@ function fives = findingfives(matrix)
     [rows, columns] = size(matrix); % finding the rows and columns of the matrix so that we can iterate over every pixel
     
     % fives, from the highest and most leftmost point have a right branch
-        % for font 72 calibri we move 30 pixels right initially
+        % for font 72 calibri we move 26 pixels right initially
         % if all of the pixels we iterate across are black then we have passed the vector test for the first stage of the 5
         % as in we know that the top of the number we are analysing complies with the top right branch of a 5
     % and then move down and around that curve
-        % We will then move down 33 rows and this will bring us to the bottom of the vertical branch from the top left of the 5.
+        % We will then move down 25 rows and this will bring us to the bottom of the vertical branch from the top left of the 5.
         % If all of the pixels in that movement down are black, we will continue with the rest of our tests which involve moving down and around the 
         % curve of the 5.
-        % we will then move 23 pixels to the right (23 columns) and this allows us to use a smaller number of diagonal vectors for testing
-        % If all of the pixels in the previous test are black we can then move 16 rows down and 16 columns to the right. 
-        % just like the previous tests, we will move 18 down and to the left, which takes us inwards from the curve
-        % if all of these pixels are still black we will move 27 to the left for the tail of the 5, and if these tests pass we have a 5.
+        % we will then move 16 pixels to the right (23 columns) and this allows us to use a smaller number of diagonal vectors for testing
+        % If all of the pixels in the previous test are black we can then move 14 rows down and 14 columns to the right. 
+        % just like the previous tests, we will move 11 pixels down and left, which takes us inwards from the curve
+        % if all of these pixels are still black we will move 22 to the left for the tail of the 5, and if these tests pass we have a 5.
         
     % iterating over every pixel in the matrix and if the pixel is black applying our logic to test if the pixel is attached to a five.
     for row = 1:rows
