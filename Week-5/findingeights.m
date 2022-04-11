@@ -16,16 +16,20 @@ function eights = findingeights(matrix)
 
     % we will use two different column variables for storing the changing columns
     % columnleft will be the left vector and columnright will be the right vector
+    
+    % iterating over every pixel in the matrix and if the pixel is black implementing our logic to test if the number is an eight
     for row = 1:rows
         for column = 1:columns
-            if(matrix(row, column)==0). % checking if the pixel is black and if so implementing our logic to find 8
+            if(matrix(row, column)==0) % checking if the pixel is black and if so implementing our logic to find 8
+                
+                % initialising the variables
                 test = false;  % sentinel variable
                 xcrement_var = 0;
-                stage = 1;  % this is going to be the variable that contains the sta
+                stage = 1;  % this is going to be the variable that contains the stage
                 % of the loop, i.e what vector to initialise
-                column_left = column+5;
+                column_left = column+5; % initialising the columns for each vector on each side of the eight
                 column_right = column+5;
-                new_row = row + 2;
+                new_row = row + 2; % centralising the initial row so that we can use less vectors
 
                 while ~test
                     if(stage==1) % iterating 10 down and 20 left and right
@@ -33,7 +37,7 @@ function eights = findingeights(matrix)
                             xcrement_var = xcrement_var + 1;
                         elseif(xcrement_var == 10) % if all of the pixels that have been covered are black and we reach the 10th row down we can 
                             % progress onto the next vector to test
-                            column_left = column_left - (2 * xcrement_var);
+                            column_left = column_left - (2 * xcrement_var); % updating the columns for each vector as the terminal point for this vector needs to be the initial point for the next
                             column_right = column_right + (2 * xcrement_var);
                             new_row = new_row + xcrement_var;
                             xcrement_var = 0;
@@ -66,7 +70,7 @@ function eights = findingeights(matrix)
                         elseif(xcrement_var==18)% if all of the pixels that have been covered are black and we reach the 10th row down we can 
                             % progress onto the next vector to test
                             new_row = new_row + xcrement_var-2;
-                            column_left = column_left + xcrement_var;
+                            column_left = column_left + xcrement_var; % updating the columns for each vector as the terminal point for this vector needs to be the initial point for the next
                             column_right = column_right - xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
@@ -81,7 +85,7 @@ function eights = findingeights(matrix)
                         elseif(xcrement_var==21) % if all of the pixels that have been covered are black and we reach the 10th row down we can 
                             % progress onto the next vector to test
                             new_row = new_row + xcrement_var+1;
-                            column_left=  column_left - xcrement_var;
+                            column_left=  column_left - xcrement_var; % updating the columns for each vector as the terminal point for this vector needs to be the initial point for the next
                             column_right = column_right + xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
@@ -96,13 +100,12 @@ function eights = findingeights(matrix)
                         elseif(xcrement_var == 17)% if all of the pixels that have been covered are black and we reach the 10th row down we can 
                             % progress onto the next vector to test
                             new_row = new_row + xcrement_var;
-                            column_left = column_left + xcrement_var;
+                            column_left = column_left + xcrement_var; % updating the columns for each vector as the terminal point for this vector needs to be the initial point for the next
                             column_right = column_right - xcrement_var;
                             xcrement_var = 0;
                             stage = stage + 1;
                         else % returning to the main script as not all the pixels iterated across are black
                             fprintf("Not a Eight\n");
-%                             fprintf("%d, %d, %d", xcrement_var, column_left+xcrement_var, new_row+xcrement_var);
                             eights = 0;
                             return;
                         end
@@ -113,7 +116,7 @@ function eights = findingeights(matrix)
                         elseif(xcrement_var == 6)
                             column_left = column_left + xcrement_var;
                             column_right = column_right - xcrement_var;                            
-                            if(column_left == column_right)
+                            if(column_left == column_right) % if the columns of the vectors meet up in the middle we can return that we have found an eight
                                 eights = 1;
                                 fprintf("An eight was found")
                                 return;
