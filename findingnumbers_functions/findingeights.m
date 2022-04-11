@@ -5,13 +5,13 @@ function eights = findingeights(matrix)
         % We can iterate the same distance down and the opposite distance sidewards
         % for each vector, as in we have opposing vectors for each stage
 
-    % for the first step we move 11 down and 22 left and 11 down and 22 right on the other side of the 8
-    % for the second step we move 9 down for both sides
-    % for the third step we move 18 down and 18 right or 18 down and 18 left depending on the side of the
+    % for the first step we move 6 down and 6 and 6 down and 6 right on the other side of the 8
+    % for the second step we move 10 down for both sides
+    % for the third step we move 9 down and 9 right or 9 down and 9 left depending on the side of the
     % 8
-    % for the fourth step we move 19 down and 19 left or 19 down and 19 right
-    % for the fifth step we move 17 down and 17 right or 17 left
-    % for the final step we move 6 right or left, and if the columns for both sides are equal then its an
+    % for the fourth step we move 16 down and 16 left with the left vector && 16 down and 16 right with the right vector
+    % for the fifth step we move 11 down, and 11 right, or 11 left
+    % for the final step we move 7 right or left, and if the columns for both sides are equal then its an
     % 8
 
     % we will use two different column variables for storing the changing columns
