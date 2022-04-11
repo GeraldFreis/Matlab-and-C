@@ -16,9 +16,14 @@ function eights = findingeights(matrix)
 
     % we will use two different column variables for storing the changing columns
     % columnleft will be the left vector and columnright will be the right vector
+    
+    % iterating over every pixel in the matrix and checking if the pixel is black and if so implementing our logic to test if the number attached to that pixel 
+    % is a 8.
     for row = 1:rows
         for column = 1:columns
-            if(matrix(row, column)==0)
+            if(matrix(row, column)==0) % if the pixel is black
+                
+                % initialising variables
                 test = false;  % sentinel variable
                 xcrement_var = 0;
                 stage = 1;  % this is going to be the variable that contains the sta
