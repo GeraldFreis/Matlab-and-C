@@ -28,10 +28,11 @@ function threes = findingthrees(matrix)
         
     % if every pixel we have iterated over was a black, and we have reached this final pixel and it is still black, we have a 3.
 
-
+    % iterating over every pixel in the matrix and if the pixel is black implementing our logic to test if the number the pixel is attached to is a 3
     for row = 1:rows
         for column = 1:columns
-            if(matrix(row, column)==0)
+            if(matrix(row, column)==0) % if the pixel is black
+                
                 % moving down the first branch
                 for i = 1:9  % moving 9 down and left
                     if(matrix(row+i, column-i)~=0) % if the pixel is no longer black we return to the main function as this vector has not passed the test
