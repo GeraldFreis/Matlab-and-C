@@ -1,3 +1,5 @@
+# Matlab: Arithmetic operations detection and solver from images
+
 This is a continuing development of a number and arithmetic operations recogniser and solver in matlab
 
 I'm sorry about how this repo currently looks
@@ -8,7 +10,7 @@ For the time being I am using constant images, but I do hope to be able to get t
 Thank you for reading and I hope you find this project interesting
 
 Functionally:
-the program uses vectors of a varying size and direction to check the values of an image. The code takes the first black pixel in the image, and then applies different vectors to the image. The vector used is dictated by the 'stage' of the code. All of this is linked around the caller_function.m file. This file breaks each image into thirds, which are the first number, the operator, and the final number. These thirds are then made matrices and passed to the findingnumbers functions. Each findingnumber function is then tested against the matrix and it applies its own sequence of vectors that are unique to the character. If these vectors are always moving across pixels of the gradient 0, we have the number of the function. We can then return true to the caller_function and this value is then passed back to the main function which takes an array of values from the caller_function function and applies whatever the operator is to the first and third element. The first and third element here are the number inthe first third and the number in the final third.
+the program uses vectors of a varying size and direction to check the values of an image. The code takes the first black pixel in the image, and then applies different vectors to the shape around that pixel. In each findingnumbers_function we see the use of stages. Each stage determines what vector to apply. We can control this by having one vector test, where we iterate over pixels from an initial point, in a certain direction and certain length. If every pixel we iterate across is black: we update two variables (new_row, new_column) which contain the terminal point of this vector, and hence the initial point of the next vector. We then increase the stage. The next stage is now called, and we do the same but change the direction and length of the vector, and again we update the row and column to the terminal point of the current vector, if all pixels iterated over are black. We continue to do this until we have passed all vector tests to recognise the number. As each number is comprised of different vectors we know that this number is the number being found, and thus we have recognised this number. 
 
 To demonstrate the logic for deconstructing a number into vectors, here is the number 2:
 
@@ -17,11 +19,10 @@ To demonstrate the logic for deconstructing a number into vectors, here is the n
 And here is the number 2 deconstructed into stages. We can notice that intemediary steps like the small upward arrow between stage 1 and 2 can simply be represented by increasing the y value of the terminal point for stage 1.
 ![image](https://user-images.githubusercontent.com/91832029/161427697-228d5ac6-300b-43d7-9a9a-371df2c91257.png)
 
-Currently I have produced the ability for the code to recognise arithmetic operations from screenshotted images. You can view the test files that my code works for under the testing_images. I recently added the ability to divide and multiply my code and it seems to work. You can also view the code under the findingnumbers_functions directory
+Currently, the code is capable of finding 2 digit and 1 digit simple arithmetic operations. 
+-> For two digit operations we break the image into fifths, as there are 2 digits on either side of the operator. And for one digit operations we break the image into thirds. To control this I created two classed FindingOperationsOneDigit and FindingOperationsTwoDigit. If you want to read more about the design you can view the designdocument.txt. And for basic system architecture and interrelation between objects you can view the system-architecture...png.
+
 
 This is an example video of the program taking a screenshotted image of 9 divided by 4 and producing the correct output to two decimal places:
 
 https://user-images.githubusercontent.com/91832029/161465200-a0103275-4c55-4e06-8e00-3a517fcbdd2b.mov
-
-Sorry about the rushed nature of the video, github does not allow uploads greater than 10 mb
-
