@@ -1,4 +1,3 @@
-# Matlab-arithmetic-operations-solver-from-images
 This is a continuing development of a number and arithmetic operations recogniser and solver in matlab
 
 I'm sorry about how this repo currently looks
