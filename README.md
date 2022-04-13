@@ -26,3 +26,9 @@ Currently, the code is capable of finding 2 digit and 1 digit simple arithmetic 
 This is an example video of the program taking a screenshotted image of 9 divided by 4 and producing the correct output to two decimal places:
 
 https://user-images.githubusercontent.com/91832029/161465200-a0103275-4c55-4e06-8e00-3a517fcbdd2b.mov
+
+This is an example video of the program taking a screenshotted image of 83 / 97 and solving the arithmetic operation
+
+https://user-images.githubusercontent.com/91832029/163098291-468f5813-5946-43d7-a3e9-3e285b626fc0.mov
+
+
