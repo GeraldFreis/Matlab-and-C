@@ -1,11 +1,10 @@
 %% This function is going to take the matrix composed in pixeltomatrix and look for adjacent elements to find shapes
 
-% iteratively taking the value of all pixels that are black and capturing that in a new matrix, and every other pixel will be converted to white.
-
+% iteratively taking the value of all pixels less than 50 and capturing
+% that in a new array
 function array_of_shapes = findingshapes(matrix)
-    [rows, columns] = size(matrix);  % finding the rows and columns of the initial image matrix
-    array_of_shapes = zeros(rows, columns/3);  % initialising the new array: we have learnt that captured images are usually 3 times the width
-    % that we need
+    [rows, columns] = size(matrix);
+    array_of_shapes = zeros(rows, columns/3);
     row = 1;
     while row <= rows
         for column = 1:columns/3
@@ -18,13 +17,7 @@ function array_of_shapes = findingshapes(matrix)
         end
         row = row + 1;
     end
-    
-    %% looking for plus symbols in the new matrix.
-    % we are going to do this by moving having a for loop that moves from a black pixel downwards until the pixel that it is currently on 
-    % is no longer black. We will then take this distance, half it, and then move to that row. That row will be halfway between the beginning of the shape
-    % and the end of the shape. We will then move left half of the distance to the bottom of the shape, and if every pixel when moving that distance left 
-    % is black we will move right. We will move right half of the distance to the bottom of the shape, and if every pixel when moving that distance right
-    % is black we will have a plus.
+
     for r = 1:rows
         for c = 1:columns
 
@@ -96,7 +89,7 @@ function array_of_shapes = findingshapes(matrix)
                 final_row = 0;
                 decrement_counter = 0;
 
-                while ~test. % iterating to the bottom of the shape, from the initial black pixel.
+                while ~test
                     if(matrix(row, column)~=0)
                         final_row = row + decrement_counter;                        
                         test = true;
@@ -109,9 +102,7 @@ function array_of_shapes = findingshapes(matrix)
                 test = false;
                 decrement_counter = 0;
                 distance = 0;
-                
-                while ~test % iterating left, by decreasing the columns, for a unspecified distance. If we move right this same distance, from the initial
-                    % column, and all of the pixels from that initial column to the end column are still black, we will have a one.
+                while ~test
                     if(matrix(row, column-decrement_counter)~=0)
                         distance = decrement_counter;
                         if(matrix(row, column+decrement_counter)==0)
