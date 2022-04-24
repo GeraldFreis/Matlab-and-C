@@ -15,28 +15,28 @@ function matrices = callerfunction_one_digit(matrix)
     addpath("findingnumbers_functions/");  % ensuring I can access the findingnumbers functions as they are in
     % their own directory
 
-    num_columns_1 = round(0.5 * columns)-20;
-    first_third = zeros(rows, num_columns_1);
+    num_columns_1 = round(0.5 * columns)-20; % setting the right column boundary for the left matrix
+    first_third = zeros(rows, num_columns_1);  % initialising the matrix to hold the pixels
     for row = 1:rows
         for column = 1:num_columns_1
-            first_third(row, column) = matrix(row, column);
+            first_third(row, column) = matrix(row, column); % adding the pixel from the original matrix to the sub matrix
         end
     end
 
-    num_columns_2 = round(0.5 * columns)+17;
-    second_third = zeros(rows, abs(num_columns_2-num_columns_1));
+    num_columns_2 = round(0.5 * columns)+17; % setting the right column boundary for the middle matrix
+    second_third = zeros(rows, abs(num_columns_2-num_columns_1));  % initialising the matrix to hold the pixels
     for row = 1:rows
         for column = num_columns_1:num_columns_2
-            second_third(row, column-num_columns_1+1) = matrix(row, column);
+            second_third(row, column-num_columns_1+1) = matrix(row, column);  % adding the pixel from the original matrix to the sub matrix
         end
     end
-    num_columns_3 = columns;
+    num_columns_3 = columns; % setting the right column boundary for the right matrix
     
-    final_third = zeros(rows, abs(num_columns_3-num_columns_2));
+    final_third = zeros(rows, abs(num_columns_3-num_columns_2)); % initialising the matrix to hold the pixels
 
     for row = 1:rows
         for column = num_columns_2: num_columns_3
-            final_third(row, column-num_columns_2+1) = matrix(row, column);
+            final_third(row, column-num_columns_2+1) = matrix(row, column);  % adding the pixel from the original matrix to the sub matrix
         end
     end
 
@@ -44,39 +44,39 @@ function matrices = callerfunction_one_digit(matrix)
     % 1st third
     fprintf("\nFinding the first number:\n\n");
     first_third_num = 0;
-    if(findingones(first_third)==1)
+    if(findingones(first_third)==1) % if the 1st number is a 1
         first_third_num = 1;
-    elseif(findingtwos(first_third)==1)
+    elseif(findingtwos(first_third)==1) % if the 1st number is a 2
         first_third_num = 2;
-    elseif(findingthrees(first_third)==1)
+    elseif(findingthrees(first_third)==1) % if the 1st number is a 3
         first_third_num = 3;
-    elseif(findingfours(first_third)==1)
+    elseif(findingfours(first_third)==1)  % if the 1st number is a 4
         first_third_num = 4;
-    elseif(findingfives(first_third)==1)
+    elseif(findingfives(first_third)==1) % if the 1st number is a 5
         first_third_num = 5;
-    elseif(findingsixes(first_third)==1)
+    elseif(findingsixes(first_third)==1) % if the 1st number is a 6
         first_third_num = 6;
-    elseif(findingsevens(first_third)==1)
+    elseif(findingsevens(first_third)==1) % if the 1st number is a 7
         first_third_num = 7;
-    elseif(findingeights(first_third)==1)
+    elseif(findingeights(first_third)==1) % if the 1st number is a 8
         first_third_num = 8;
-    elseif(findingnines(first_third)==1)
+    elseif(findingnines(first_third)==1) % if the 1st number is a 9
         first_third_num = 9;
     else
         fprintf("Invalid character for first number");
         
     end
 
-    % 2nd third
+    % iterating over the 2nd third and checking what the operator is
     fprintf("\n*******\n\n")
     fprintf("Finding the operator:\n\n");
-    if(findingplussymbol(second_third)==1)
+    if(findingplussymbol(second_third)==1) % if a plus is found
         operator = "plus";
-    elseif(findingminuses(second_third)==1)
+    elseif(findingminuses(second_third)==1) % if a minus is found
         operator = "minus";
-    elseif(findingmultiplication(second_third)==1)
+    elseif(findingmultiplication(second_third)==1) % if a asterisk is found
         operator = "multiply";
-    elseif(findingdivision(second_third)==1)
+    elseif(findingdivision(second_third)==1) % if a division or backslash is found
         operator = "divide";
     else
         operator = "invalid";
@@ -85,7 +85,8 @@ function matrices = callerfunction_one_digit(matrix)
 
     %final third
     fprintf("\nFinding the second number:\n\n");
-
+    
+    % iterating over the final third and checking if a findingnumbers function returns that its number was found
     final_third_num = 0;
     if(findingones(final_third)==1)
         final_third_num = 1;
@@ -108,6 +109,8 @@ function matrices = callerfunction_one_digit(matrix)
     else
         fprintf("Invalid character for second number");
     end
+    
+    % returning the operation found as an array
     matrices = [first_third_num, operator, final_third_num];
     fprintf("\n******\n\n")
     return;
