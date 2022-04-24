@@ -20,7 +20,7 @@ function digit_2 = checkingfirstnumber_digit2(submatrix)
         digit_2 = 8;
     elseif(findingnines(submatrix, 2)==1)
         digit_2 = 9;
-    else
+    else % if none of the findingnumbers functions returned that their number was found we have an invalid character
         fprintf("Invalid character for second number\n");
     end
 end
