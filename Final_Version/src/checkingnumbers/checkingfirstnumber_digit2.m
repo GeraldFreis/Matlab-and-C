@@ -1,3 +1,4 @@
+%% function to iterate over every findingnumbers function and check if that number exists in the provided matrix
 function digit_2 = checkingfirstnumber_digit2(submatrix)
     % iterating over each findingnumbers function to determine what number is in the second fifth of the image
     digit_2 = 0;
