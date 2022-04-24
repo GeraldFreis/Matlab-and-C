@@ -2,11 +2,11 @@
 function past_result_array = savingresult(currentresult)
 
      try % attempting to write to the file
-        currentfile = fopen("pastresultsfile.txt", 'r'); % opening the file
+        
+        currentfile = fopen("pastresultsfile.txt", 'r+'); % opening the file
         A = fscanf(currentfile, "%f\n");
         fclose(currentfile);
         
-
         file = fopen("pastresultsfile.txt", 'w'); % opening the file and allowing the script to write to it
 
         % vertically concatenating the current result to the vertical array

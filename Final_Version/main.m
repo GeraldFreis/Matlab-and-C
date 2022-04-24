@@ -5,7 +5,7 @@ clear
 addpath("src");
 
 %% taking the image as a variable to pass to the FindingOperations class
-image = 'testing_images/44_plus_99.png';
+image = 'testing_images/88_times_88.png';
 numberofdigits = input("How many digits are in the numbers of this image: ");
 
 %% initialising the FindingOperations class to call the FindingOperationsOneDigit
@@ -19,7 +19,7 @@ findingoperations_obj = FindingOperations(image, numberofdigits);
 savingresult(solving_AO_operation(number_1, operator, number_2)); % solving the operation, printing the result and returning that to be saved
 [xaxis, yaxis] = retrievingpastresults(); % retrieving past results and their indexs
 
-% plotting the past results (yaxis) against their indexes
+% plotting the past results (yaxis) against their indexes (xaxis)
 plot(xaxis, yaxis);
 ylabel("Past Solutions");
 xlabel("Solution Number (index)");

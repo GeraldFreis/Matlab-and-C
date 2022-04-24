@@ -1,11 +1,16 @@
+%% function to test if this is a plus symbol
 function pluses = findingplussymbol(matrix)
+
     [rows, columns] = size(matrix);
+
+    % iterating through every pixel and checking if it is black and if so testing our logic to see if it
+    % is a plus symbol
     for r = 1:rows
         for c = 1:columns
             if (matrix(r, c)==0 && matrix(r, c+2)==0)  % testing if the character is a plus symbol
                 test = false;  % sentinal test
-                running_downwards_counter = 0;  % decreasing the columns to the bottom of the symbol
-                final_row = 0;  % storing the final column
+                running_downwards_counter = 0;  % the increment value to decrease the columns to the bottom of the symbol
+                final_row = 0;  % storing the final row that is iterated to
 
                 % logic for this process:
                 % we iterate to the bottom of the symbol and this gives us
@@ -37,16 +42,15 @@ function pluses = findingplussymbol(matrix)
 
                 % in case the distance is not even
                 if(mod(distance,2) == 0) % if distance is even
-                    distance_to_each_end = distance / 2;
+                    distance_to_each_end = distance / 2 - 1;
                 else % if distance is not even, ensuring that the distance_to_each_end is not a half
-                    distance_to_each_end = (distance+1)/2;
+                    distance_to_each_end = (distance+1)/2 - 1;
                 end
-
-                if(matrix(r+distance_to_each_end, c-distance_to_each_end+8)~=0) % moving the distance left and checking if that pixel is still black, and if not it is not a plus
+                
+                if(matrix(r+distance_to_each_end, c+distance_to_each_end-8)~=0) % moving the distance left and checking if that pixel is still black, and if not it is not a plus
                     fprintf("Not a plus\n");
                     pluses = 0;
                     return;
-
                 else % if the pixel that distance left is black, moving that same distance right
                     if(matrix(r + distance_to_each_end, c + distance_to_each_end-8) == 0)  % moving the distance right and checking if that pixel is still black, and if not it is not a plus
                         fprintf("A plus is found\n")
@@ -54,7 +58,6 @@ function pluses = findingplussymbol(matrix)
                         return;
                     end
                 end
-
             end
         end
     end

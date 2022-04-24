@@ -46,7 +46,7 @@ classdef FindingOperations
                 % finding the arithmetic operation asynchronously
                 number_1_future = parfeval(@operations_object.findingfirstnum, 1, ...
                     operations_object.sub_matrix_1); % computing the 1st number asynchronously
-
+                
                 operator_future = parfeval(@operations_object.findingoperator, 1, ...
                     operations_object.sub_matrix_2); % computing operator asynchronously
 
