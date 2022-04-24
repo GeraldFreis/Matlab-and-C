@@ -29,15 +29,15 @@ function matrices = callerfunction_two_digit(matrix)
     column_bound_5 = columns; % the end column for the second number in the second pair of digits is the final column of the image
 
     % iterating over every pixel in each fifth and adding it to the matrix that represents each fifth
-    first_fifth_pixels = zeros(rows, column_bound_1);
+    first_fifth_pixels = zeros(rows, column_bound_1); % initialising the matrix to hold the pixels
     for row = 1:rows
         for column = 1:column_bound_1
-            first_fifth_pixels(row, column) = matrix(row, column);
+            first_fifth_pixels(row, column) = matrix(row, column); 
         end
     end
     
     % iterating over every pixel in the second fifth and creating the new matrix to hold this
-    second_fifth_pixels = zeros(rows, abs(column_bound_2-column_bound_1));
+    second_fifth_pixels = zeros(rows, abs(column_bound_2-column_bound_1));  % initialising the matrix to hold the pixels
     for row = 1:rows
         for column = column_bound_1:column_bound_2
             second_fifth_pixels(row, column-column_bound_1+1) = matrix(row, column);
@@ -45,7 +45,7 @@ function matrices = callerfunction_two_digit(matrix)
     end
     
     % iterating over every pixel in the third fifth and created a new matrix to hold these
-    third_fifth_pixels = zeros(rows, abs(column_bound_3-column_bound_2));
+    third_fifth_pixels = zeros(rows, abs(column_bound_3-column_bound_2));  % initialising the matrix to hold the pixels
     for row = 1:rows
         for column = column_bound_2: column_bound_3
             third_fifth_pixels(row, column-column_bound_2+1) = matrix(row, column);
@@ -53,7 +53,7 @@ function matrices = callerfunction_two_digit(matrix)
     end
     
     % iterating over every pixel in the fourth fifth and creating a new matrix to hold these pixels
-    fourth_fifth_pixels = zeros(rows, (column_bound_4-column_bound_3));
+    fourth_fifth_pixels = zeros(rows, (column_bound_4-column_bound_3));  % initialising the matrix to hold the pixels
     for row = 1:rows
         for column = column_bound_3: column_bound_4
             fourth_fifth_pixels(row, column-column_bound_3+1) = matrix(row, column);
@@ -61,7 +61,7 @@ function matrices = callerfunction_two_digit(matrix)
     end
     
     % iterating over every pixel in the fourth fifth and creating a new matrix to hold these pixels
-    final_fifth_pixels = zeros(rows, abs(column_bound_5-column_bound_4));
+    final_fifth_pixels = zeros(rows, abs(column_bound_5-column_bound_4));  % initialising the matrix to hold the pixels
     for row = 1:rows
         for column = column_bound_4: column_bound_5
             final_fifth_pixels(row, column-column_bound_4+1) = matrix(row, column);
