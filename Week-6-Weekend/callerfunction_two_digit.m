@@ -72,23 +72,23 @@ function matrices = callerfunction_two_digit(matrix)
     % 1st fifth
     fprintf("\nFinding the first number:\n\n");
     first_fifth_num = 0;
-    if(findingones(first_fifth_pixels)==1)
+    if(findingones(first_fifth_pixels)==1) % if first number is a 1, returning the 1st digit as its tenths counterpart
         first_fifth_num = 10;
-    elseif(findingtwos(first_fifth_pixels)==1)
+    elseif(findingtwos(first_fifth_pixels)==1) % if first number is a 2, returning the 1st digit as its tenths counterpart
         first_fifth_num = 20;
-    elseif(findingthrees(first_fifth_pixels)==1)
+    elseif(findingthrees(first_fifth_pixels)==1) % if first number is a 3, returning the 1st digit as its tenths counterpart
         first_fifth_num = 30;
-    elseif(findingfours(first_fifth_pixels)==1)
+    elseif(findingfours(first_fifth_pixels)==1)% if first number is a 4, returning the 1st digit as its tenths counterpart
         first_fifth_num = 40;
-    elseif(findingfives(first_fifth_pixels)==1)
+    elseif(findingfives(first_fifth_pixels)==1)% if first number is a 5, returning the 1st digit as its tenths counterpart
         first_fifth_num = 50;
-    elseif(findingsixes(first_fifth_pixels)==1)
+    elseif(findingsixes(first_fifth_pixels)==1)% if first number is a 6, returning the 1st digit as its tenths counterpart
         first_fifth_num = 60;
-    elseif(findingsevens(first_fifth_pixels)==1)
+    elseif(findingsevens(first_fifth_pixels)==1) % if first number is a 7, returning the 1st digit as its tenths counterpart
         first_fifth_num = 70;
-    elseif(findingeights(first_fifth_pixels)==1)
+    elseif(findingeights(first_fifth_pixels)==1) % if first number is a 8, returning the 1st digit as its tenths counterpart
         first_fifth_num = 80;
-    elseif(findingnines(first_fifth_pixels)==1)
+    elseif(findingnines(first_fifth_pixels)==1) % if first number is a 9, returning the 1st digit as its tenths counterpart
         first_fifth_num = 90;
     else
         fprintf("Invalid character for first number\n");
@@ -98,23 +98,23 @@ function matrices = callerfunction_two_digit(matrix)
     % 2nd fifth
     fprintf("\nFinding the second number:\n\n")
     second_fifth_num = 0;
-    if(findingones(second_fifth_pixels)==1)
+    if(findingones(second_fifth_pixels)==1) % if the number is a 1 returning it as the second digit
         second_fifth_num = 1;
-    elseif(findingtwos(second_fifth_pixels)==1)
+    elseif(findingtwos(second_fifth_pixels)==1) % if the number is a 2 returning it as the second digit
         second_fifth_num = 2;
-    elseif(findingthrees(second_fifth_pixels)==1)
+    elseif(findingthrees(second_fifth_pixels)==1) % if the number is a 3 returning it as the second digit
         second_fifth_num = 3;
-    elseif(findingfours(second_fifth_pixels)==1)
+    elseif(findingfours(second_fifth_pixels)==1) % if the number is a 4 returning it as the second digit
         second_fifth_num = 4;
-    elseif(findingfives(second_fifth_pixels)==1)
+    elseif(findingfives(second_fifth_pixels)==1) % if the number is a 5 returning it as the second digit
         second_fifth_num = 5;
-    elseif(findingsixes(second_fifth_pixels)==1)
+    elseif(findingsixes(second_fifth_pixels)==1) % if the number is a 6 returning it as the second digit
         second_fifth_num = 6;
-    elseif(findingsevens(second_fifth_pixels)==1)
+    elseif(findingsevens(second_fifth_pixels)==1) % if the number is a 7 returning it as the second digit
         second_fifth_num = 7;
-    elseif(findingeights(second_fifth_pixels)==1)
+    elseif(findingeights(second_fifth_pixels)==1) % if the number is a 8 returning it as the second digit
         second_fifth_num = 8;
-    elseif(findingnines(second_fifth_pixels)==1)
+    elseif(findingnines(second_fifth_pixels)==1) % if the number is a 9 returning it as the second digit
         second_fifth_num = 9;
     else
         fprintf("Invalid character for second number");
@@ -141,23 +141,23 @@ function matrices = callerfunction_two_digit(matrix)
     fprintf("\nFinding the third number:\n\n");
 
     fourth_fifth_num = 0;
-    if(findingones(fourth_fifth_pixels)==1)
+    if(findingones(fourth_fifth_pixels)==1) % if the first digit is a 1 returning it as its tenths counterpart
         fourth_fifth_num = 10;
-    elseif(findingtwos(fourth_fifth_pixels)==1)
+    elseif(findingtwos(fourth_fifth_pixels)==1) % if the first digit is a 2 returning it as its tenths counterpart
         fourth_fifth_num = 20;
-    elseif(findingthrees(fourth_fifth_pixels)==1)
+    elseif(findingthrees(fourth_fifth_pixels)==1) % if the first digit is a 3 returning it as its tenths counterpart
         fourth_fifth_num = 30;
-    elseif(findingfours(fourth_fifth_pixels)==1)
+    elseif(findingfours(fourth_fifth_pixels)==1) % if the first digit is a 4 returning it as its tenths counterpart
         fourth_fifth_num = 40;
-    elseif(findingfives(fourth_fifth_pixels)==1)
+    elseif(findingfives(fourth_fifth_pixels)==1) % if the first digit is a 5 returning it as its tenths counterpart
         fourth_fifth_num = 50;
-    elseif(findingsixes(fourth_fifth_pixels)==1)
+    elseif(findingsixes(fourth_fifth_pixels)==1) % if the first digit is a 6 returning it as its tenths counterpart
         fourth_fifth_num = 60;
-    elseif(findingsevens(fourth_fifth_pixels)==1)
+    elseif(findingsevens(fourth_fifth_pixels)==1) % if the first digit is a 7 returning it as its tenths counterpart
         fourth_fifth_num = 70;
-    elseif(findingeights(fourth_fifth_pixels)==1)
+    elseif(findingeights(fourth_fifth_pixels)==1) % if the first digit is a 8 returning it as its tenths counterpart
         fourth_fifth_num = 80;
-    elseif(findingnines(fourth_fifth_pixels)==1)
+    elseif(findingnines(fourth_fifth_pixels)==1) % if the first digit is a 9 returning it as its tenths counterpart
         fourth_fifth_num = 90;
     else
         fprintf("Invalid character for first digit of the second number");
@@ -166,28 +166,29 @@ function matrices = callerfunction_two_digit(matrix)
     % finding the final digit
     fprintf("\nFinding the final digit:\n\n");
     final_fifth_num = 0;
-    if(findingones(final_fifth_pixels)==1)
+    if(findingones(final_fifth_pixels)==1) % if the number is a 1 returning it as the second digit
         final_fifth_num = 1;
-    elseif(findingtwos(final_fifth_pixels)==1)
+    elseif(findingtwos(final_fifth_pixels)==1) % if the number is a 2 returning it as the second digit
         final_fifth_num = 2;
-    elseif(findingthrees(final_fifth_pixels)==1)
+    elseif(findingthrees(final_fifth_pixels)==1) % if the number is a 3 returning it as the second digit
         final_fifth_num = 3;
-    elseif(findingfours(final_fifth_pixels)==1)
+    elseif(findingfours(final_fifth_pixels)==1) % if the number is a 4 returning it as the second digit
         final_fifth_num = 4;
-    elseif(findingfives(final_fifth_pixels)==1)
+    elseif(findingfives(final_fifth_pixels)==1) % if the number is a 5 returning it as the second digit
         final_fifth_num = 5;
-    elseif(findingsixes(final_fifth_pixels)==1)
+    elseif(findingsixes(final_fifth_pixels)==1) % if the number is a 6 returning it as the second digit
         final_fifth_num = 6;
-    elseif(findingsevens(final_fifth_pixels)==1)
+    elseif(findingsevens(final_fifth_pixels)==1) % if the number is a 7 returning it as the second digit
         final_fifth_num = 7;
-    elseif(findingeights(final_fifth_pixels)==1)
+    elseif(findingeights(final_fifth_pixels)==1) % if the number is a 8 returning it as the second digit
         final_fifth_num = 8;
-    elseif(findingnines(final_fifth_pixels)==1)
+    elseif(findingnines(final_fifth_pixels)==1) % if the number is a 9 returning it as the second digit
         final_fifth_num = 9;
     else
         fprintf("Invalid character for second digit of the second number");
     end
-    matrices = [first_fifth_num+second_fifth_num, operator, fourth_fifth_num + final_fifth_num];
+    
+    matrices = [first_fifth_num+second_fifth_num, operator, fourth_fifth_num + final_fifth_num]; % returning the components as an array
     fprintf("\n******\n\n")
     return;
 end
