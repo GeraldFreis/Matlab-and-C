@@ -6,10 +6,10 @@ addpath("src");
 
 %% taking the image as a variable to pass to the FindingOperations class
 image = 'testing_images/88_times_88.png';
-numberofdigits = input("How many digits are in the numbers of this image: ");
+numberofdigits = input("How many digits are in the numbers of this image: "); % receiving the number of digits for this operation
 
 %% initialising the FindingOperations class to call the FindingOperationsOneDigit
-% or FindingOperationsTwoDigit classes to find the numbers in the image
+% or FindingOperationsTwoDigit classes to find the numbers in the image depending on whether the image is a one digit or two digit operation
 findingoperations_obj = FindingOperations(image, numberofdigits);
 [number_1, operator, number_2] = findingoperations_obj.getoperations(findingoperations_obj.matrix_of_pixels, numberofdigits); % getting the operation
 
