@@ -1,6 +1,23 @@
-For this week, as the Readme states, I created checkingnumbers functions and the savingresults and retrievingpastresults functions. 
-The checkingnumbers functions takes the role of iterating through each findingnumbers function to check if that number exists in the matrix out of the responsibility for the FindingOperationsOneDigit and FindingOperationsTwoDigit classes. This made my code far more succinct, however, the modular importing may have increased runtime very slightly. To test each of the checkingnumbers functions I simply integrated them into their respective classes, either FindingOperationsOneDigit or FindingOperationsTwoDigit classes in the findingfirstnum, findingoperator and findingsecondnum method of each class.
+For this week, as the Readme states, I created checkingnumbers functions and the 
+savingresults and retrievingpastresults functions. 
+The checkingnumbers functions takes the role of iterating through each findingnumbers function
+to check if that number exists in the matrix out of the responsibility for the 
+FindingOperationsOneDigit and FindingOperationsTwoDigit classes. 
+This made my code far more succinct, however, the modular importing may have 
+increased runtime very slightly. To test each of the checkingnumbers functions I simply 
+integrated them into their respective classes, either FindingOperationsOneDigit 
+or FindingOperationsTwoDigit classes in the findingfirstnum, findingoperator and findingsecondnum method of each class.
 
-To test the functions I simply ran the code from the main file with different images from the testingimages directory and I ensured that the required numbers were found which they were immediately. This was because I copied the code from the FindingOperationsOneDigit and FindingOperationsTwoDigit methods and simply put them into their own function so no code changes were really required.
+To test the functions I simply ran the code from the main file with different 
+images from the testingimages directory and I ensured that the required numbers 
+were found which they were immediately. This was because I copied the code from 
+the FindingOperationsOneDigit and FindingOperationsTwoDigit methods and simply 
+put them into their own function so no code changes were really required.
 
-For the savingresults and retrievingpastresults functions I tested them by simply running the program multiple times with multiple inputs, this increased the database of past results and the graph of past results proportionally increased. Some errors I bumped into were the data not correctly writing to the file, and when it would write it would only write on one line in a large string. I fixed these errors by printing each current number to the end of the file with a new line after it. Every test was run through the main file, as has been the case this entire project, and took different constant images to test
+For the savingresults and retrievingpastresults functions I tested them by simply 
+running the program multiple times with multiple inputs, this increased the database 
+of past results and the graph of past results proportionally increased. Some errors I bumped
+into were the data not correctly writing to the file, and when it would write it would only
+write on one line in a large string. I fixed these errors by printing each current number to
+the end of the file with a new line after it. Every test was run through the main file,
+as has been the case this entire project, and took different constant images to test
