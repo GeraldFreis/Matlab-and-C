@@ -1,0 +1,5 @@
+The testing for this project can be found in each directory of updates referenced as testing.txt
+
+The testing of this project was, as a whole, conducted with a main file that at times called individual functions, and more recently called classes and member functions of that class. The testing usually worked with constant images which can be found in the testingimages directory of every week after Week-5-2nd update I believe. 
+
+These constant images were passed from the main file to functions that performed some process on the image, whether it was finding the numbers, or finding the arithmetic operation as a whole. The repeated use of these constant images to test the algorithms resulted in the final project which works for all images in the testingimages directory and should work for all images of 544x900 size that contain calibri 72 numbers that are vertically and horizontally centre justified.
