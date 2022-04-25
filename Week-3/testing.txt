@@ -1,0 +1,3 @@
+For this update I simply used the main file to call the takingpic function and take a picture.
+As the picture was displayed on the screen after taking it I could see whether or not it was greyscaled correctly and deblurred.
+I repeated this process of checking the image until the image was completely greyscaled.
