@@ -1,1 +1,8 @@
-For this update I 
+For this update I used constant images number_1.png and plussymbol.png to test my findingones.m and findingplussymbol.m functions.
+The expected output for these tests was that each function would return "a one was found" or "a plus was found" given the cleaned matrix input
+I again used the main.m file to test the functions by calling the cleaning matrices functions and then the findingones and findingplussymbol functions to
+test if a one or a plus was found.
+
+Expected result:
+if the image was number_1.png: a one was found\na plus was not found
+if the image was plussymbol.png: a one was not found\na plus was found\
