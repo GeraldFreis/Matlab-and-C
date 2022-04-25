@@ -1,0 +1,4 @@
+For this week I tested the added classes, sub classes and solving_AO_operation function by passing to it the files and then testing if the required answer of the image was processed. As I had ironed out the problems with the findingnumbers functions I knew that each image would be processed correctly by them, and that the problems would come from the classes added.
+
+To test the classes I just called them from the main function, at first individually, and then through the FindingOperations class, when I knew that they worked. If any error occurred I just worked through the error, as the errors mainly came from a lack of understanding of matlab classes, such as the first parameter for a matlab class being ~ nullifiable if the class already has an instance created. To specifically test them I called the required one or two digit classes to detect and handle the problems from the main file. 
+
