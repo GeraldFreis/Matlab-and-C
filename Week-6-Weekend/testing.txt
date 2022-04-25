@@ -1,0 +1,9 @@
+As the readme states: I implemented the callerfunction_two_digit function which operates on two digit arithmetic operations
+
+The function subdivides the original matrix into 5 matrices, the first two storing the first number, the third storing the operator and the final two storing the second number. It then calls the respective findingnumbers functions to determine what number or operator exists in each third.
+
+To test this file I composed new two digit arithmetic operations images. Which can be seen in the testingimages directory (where I made images like 22_divided_by_33.png and 44_plus_99). i passed these images into the pixeltomatrix function and then that array into the callerfunction_two_digit function. This all occurred in the main file. I had to readjust the vectors for some numbers as there were slight differences in the proportions for numbers with two digit operations compared to one digit operations. To test this I just called a two digit image from the testingimages directory and passed the matrix of that into the callerfunction_two_digit function, which then called the individual functions to check what number or operator exists in each sub matrix. If a number was in the image but was not found by the script (i.e the script printed that it did not find a 1 for example) I knew I had to adjust the findingones function. From there I would print the end points for the vectors in the findingones function and compare that to the pixel matrix, and if an endpoint of a vector did not align with the endpoint it needed to be for the number, I adjusted the length and offsets. 
+
+I tested that each function could recognise two digit arithmetic operations with the pictures in the testingimages directory of this directory.
+The expected output for each image was just the regular arithmetic solution for the operation.
+i.e if the operation was 22/33, the expected output was 0.67. And if the opeartion was 88 * 88, the solution was 7744.
