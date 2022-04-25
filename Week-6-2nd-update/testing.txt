@@ -1,0 +1,23 @@
+As with this update I did like the previous update and simply used the testingimages images to test each development.
+
+I had to readjust the vectors for each number, and to test each functon I just used different images from the testingimages directory, like one_plus_two.
+If the code recognised the operation correctly then there was no need to adjust the vectors. However, if findingones, findingplussymbol or findingtwos did not return that they found the numbers then I printed out the end point for each vector and used the matrices I created to find where on the matrix the vector ended and then just readjust the vector so that it ended where it needed to end for the shape to be recognised. I repeated this process by using the constant images and printing the endpoints and the numbers were able to be recognised.
+
+Expected output from one_plus_two:
+The result is: 3
+Expected output from nine_divided_by_four
+ The result is: 2.25
+Expected output for six_times_3
+The result is: 18
+
+Expected ouput for five plus one
+The result is: 6
+
+Expected output for five plus six
+The result is: 11
+
+Expected output for nine plus 3
+The result is: 12
+
+Expected output for three plus four
+The result is: 7
