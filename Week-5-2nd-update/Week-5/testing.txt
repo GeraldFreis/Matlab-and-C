@@ -1,0 +1,15 @@
+like previous weeks I embedded the testing in the main.m file which acts as a driver.
+
+I took the different constant images (which behaved as tests) and passed them into the cleaning matrices functions and then into the findingnumbers 
+functions to test if the function recognised the number or symbol in the image. 
+
+expected output:
+if image is:
+- number_1.png: a one was found, (& none of the other functions return that their number was detected in the image)
+- number_2.png: a two was found, (& none of the other functions return that their number was detected in the image)
+- number_3.png: a three was found, (& none of the other functions return that their number was detected in the image)
+- number_4.png: a four was found, (& none of the other functions return that their number was detected in the image)
+- number_5.png: a five was found, (& none of the other functions return that their number was detected in the image)
+- number_6.png: a six was found, (& none of the other functions return that their number was detected in the image)
+- number_7.png: a seven was found, (& none of the other functions return that their number was detected in the image)
+- number_8.png: a eight was found, (& none of the other functions return that their number was detected in the image)
