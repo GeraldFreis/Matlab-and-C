@@ -1,1 +1,9 @@
+The testing for this week involved using the images to test the findingnumbers.m function which i integrated into a number of the findingnumbers directories' functions.
 
+I abstracted my program by taking the common formula that each vector that composes a number adheres to, where it moves a specific length in a specific direction, and I composed a function (findingnumbers) that takes the direction and length as well as first row and column and iterates over every pixel in that direction for the required length. The function tests if each pixel iterated over was black and if so that vector test was passed. 
+
+To test this function I implemented it into findingfours.m first, and I used three_plus_four.png to check if the number four was correctly found in the image. If a four was not detected, I would the findingnumbers implementation in the findingfours.m file. 
+
+The expected output for three_plus_four.png is:
+7
+and this was achieved.
