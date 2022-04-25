@@ -1,1 +1,5 @@
+# Week - 7 2nd update
+For this update I remade the callerfunction_one_digit and callerfunction_two_digit functions into sub classes of a handling class called FindingOperations
+The code now first the system design image, where the main file passes the image and number of digits to the FindingOperations class which then, if it is a two digit operation calls the FindingOperationsTwoDigit class to find the arithmetic operation and if it is a one digit operation the FindingOperations class calls the FindingOperationsOneDigit class. 
 
+Each of the FindingOperationsOneDigit and FindingOperationsTwoDigit classes have a function that returns the operation in an array containing number_1, operator and number_2 as returned by the checkingoperations functions. The checking operations functions call the individual findingnumbers functions to detect if their number is present in the matrix, and if so return the number. This would then be returned alongside the other number(s) and operator to the findingOperations main class which would then call the solving_AO_operation function to take the operator and then preform the arithmetic operation on the numbers present.
