@@ -1,0 +1,10 @@
+For this update I again took pictures, showed those pictures to see if it was deblurred and greyscaled
+and then produce a matrix from the pictures. I stored this matrix and then created another cleaned matrix.
+this enabled me to look at both of the matrixes in the workspace to ensure that they were as expected.
+
+Expected output from tests:
+Deblurred and greyscaled image shown of what the camera took
+Deblurred and greyscaled matrix in the workspace
+Cleaned matrix of only black and white pixels in the workspace
+
+Tests were conducted through the main.m file which acts as a driver
