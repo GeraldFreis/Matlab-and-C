@@ -1,1 +1,7 @@
+For this update i introduced the callerfunction which takes the initial cleaned matrix and then breaks the matrix into three sub matrices
+This is to handle 1 digit arithmetic operations like 1+2. The first third is the first number, the second third is the operator, and the final third is the second number. 
 
+I then iterate across the findingnumbers functions for each third and check what number or operator exists in that third.
+I tested this by using the images in testingimages, where I pass the image to the caller function which disects it and then passes the matrices to the findingnumbers functions. The findingnumbers functions finds the number or operator in each third and then passes those back as an array to be solved by the main file which then outputs the result.
+
+For each of the testingimages images like 1+2, 3+4 etc. the expected output is the normal result of the arithmetic operation.
