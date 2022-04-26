@@ -1,7 +1,7 @@
 function sevens = findingsevens(matrix)
     [rows, columns] = size(matrix);
     % logic for seven:
-    % we start at the top left of the seven so we have to move to the end of the row
+    % we start at the top left of the seven so we have to move to the end of the top branch of the 7
         % for 72 font calibri this is 34 units right
     % we then move down the diagonal with a row increment of 2 for every column increment 24 times
         % the diagonal is decreasing the columns while increasing the row
