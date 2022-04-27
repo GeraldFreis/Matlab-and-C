@@ -22,7 +22,7 @@ classdef FindingOperationsOneDigit
 
                 % initialising the column boundaries of each sub matrix
                 column_boundary_1 =  round(0.5 * totalcolumns)-20;
-                column_boundary_2 = round(0.5 * totalcolumns)+15;
+                column_boundary_2 = round(0.5 * totalcolumns)+16;
                 column_boundary_3 = totalcolumns;
 
                 % producing the three sub matrices

@@ -66,7 +66,7 @@ classdef FindingOperations
                 operations_object = FindingOperationsTwoDigit(matrix_of_pixels); 
         
                 % finding the arithmetic operation and using async programming to compute all numbers and
-                % operators
+                % operators simultaneously
 
                 number_1_future = parfeval(@operations_object.findingfirstnum, 1,...
                     operations_object.sub_matrix_1,...

@@ -17,7 +17,8 @@
 
 
 function boolval = findingnumbers(direction, length, current_row, current_column, matrix)
-    boolval = false;
+    boolval = false; % ensuring that the default value to return is false, as this will be returned if not every pixel iterated over was black
+    
     try
         switch direction
             case "downleft" % if we need to move down and left, we increase row and decrease column

@@ -5,7 +5,9 @@ clear
 addpath("src");
 
 %% taking the image as a variable to pass to the FindingOperations class
-image = 'testing_images/two_minus_one.png'; 
+try image = 'testing_images/nine_divided_by_four.png'; % checking if the image exists
+catch;error("Image does not exist")
+end
 
 % asking the user for the number of digits on each side of the arithmetic operation
 numberofdigits = input("How many digits are in the numbers of this image: ");

@@ -1,4 +1,4 @@
-%% function to retrieve the past results and create two arrays
+%% function to retrieve the past results from pastresultsfile.txt and create two arrays
 % one array is a list of indexs of the results and the other is the past results
 
 function [index_array, past_result_array] = retrievingpastresults()
@@ -10,8 +10,8 @@ function [index_array, past_result_array] = retrievingpastresults()
     past_results = fscanf(file, "%f\n"); % this creates a n x 1 matrix, but I need a 1 x n matrix so we have to convert this
     fclose(file);
 
-    % converting the vertical matrix into a horizontal matrix
-    past_result_array = zeros(length(past_results));
+    %% converting the vertical matrix into a horizontal array
+    past_result_array = zeros(length(past_results)); % initialising the returned array of past results as horizontal (1 x n)
 
     for i = 1:length(past_results)
         past_result_array(i) = past_results(i); % copying the current val of past results into our returnable vector

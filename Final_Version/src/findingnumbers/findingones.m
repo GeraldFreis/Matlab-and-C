@@ -7,8 +7,7 @@ function  one = findingones(matrix)
 
     for row = 1:rows-1
         for column = 1:columns
-            if(matrix(row, column)==0 && matrix(row, column+2)==0)
-
+            if(matrix(row, column)==0 && matrix(row, column+1)==0)
                 % logic for finding 1:
                 % 1 in this script will be proportional by some constant K
                 % we can take the top value of the 1, i.e the first 0
@@ -22,12 +21,13 @@ function  one = findingones(matrix)
                 increment_factor = 0; % this is the variable that will be increased in every loop of the while loop and will emulate a vector by changing the current
                 % row and or column or both for each iteration
 
-                %% iterating to the bottom of the shape
+                %% iterating to the bottom of the number
                 while ~test
-                    if(matrix(row+increment_factor, column)==0 && row + increment_factor < 544) % if the pixel is no longer black we have reached the bottom of the shape
+                    if(matrix(row+increment_factor, column)==0 && row + increment_factor < 544) % if the pixel is no longer black and we have not exceeded the matrix
+                        % or reached the bottom of the shape
                         increment_factor = increment_factor + 1;
                     
-                    elseif(matrix(row+increment_factor, column)~=0) % if the pixel is still black, continuing to increase the increment factor
+                    elseif(matrix(row+increment_factor, column+2)~=0) % if the pixel is still black, continuing to increase the increment factor
                        
                         final_row = row + increment_factor-1;
                         
@@ -42,6 +42,9 @@ function  one = findingones(matrix)
                         fprintf("Not a one\n");
                         one = 0;
                         return;
+                    else
+                        one = 0;
+                        return;
                     end
                 end
                 
@@ -49,7 +52,7 @@ function  one = findingones(matrix)
                 increment_factor = 0; % resetting the increment factor
                 while test
                     if(matrix(final_row, column-increment_factor)~=0)
-                        if(matrix(final_row, column+increment_factor-4)==0)  % iterating the same distance right as we did left and if this passes we have passed the test for the
+                        if(matrix(final_row, column+increment_factor-8)==0)  % iterating the same distance right as we did left and if this passes we have passed the test for the
                             % bottom of the one
                             % there is an offset here because the left side and the right side of the two
                             % are not always the same distance, specifically for two digit operations
@@ -57,6 +60,7 @@ function  one = findingones(matrix)
                         else
                             fprintf("No ones\n");
                             one = 0;
+                            
                             return;
                         end
                     else

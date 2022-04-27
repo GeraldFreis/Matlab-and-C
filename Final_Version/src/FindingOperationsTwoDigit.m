@@ -67,13 +67,16 @@ classdef FindingOperationsTwoDigit
             matrix_to_iterate_over = submatrix; % setting the sub_matrix_3 to an easier to pass value
 
             fprintf("\nFinding the operator:\n\n");
-            if(findingplussymbol(matrix_to_iterate_over)==1)
+            
+            % iterating over every findingoperator function to test if that operator is the operator in
+            % the image
+            if(findingplussymbol(matrix_to_iterate_over)==1) % if a plus symbol is found
                 operator = "plus";
-            elseif(findingminuses(matrix_to_iterate_over)==1)
+            elseif(findingminuses(matrix_to_iterate_over)==1) % if a minus is found
                 operator = "minus";
-            elseif(findingmultiplication(matrix_to_iterate_over)==1)
+            elseif(findingmultiplication(matrix_to_iterate_over)==1) % if an asterisk / multiplication symbol is found
                 operator = "multiply";
-            elseif(findingdivision(matrix_to_iterate_over)==1)
+            elseif(findingdivision(matrix_to_iterate_over)==1) % if a division symbol is found
                 operator = "divide";
             else
                 operator = "invalid";

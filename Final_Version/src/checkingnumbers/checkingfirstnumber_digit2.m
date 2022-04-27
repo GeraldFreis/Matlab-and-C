@@ -1,4 +1,3 @@
-%% function to iterate over every findingnumbers function and check if that number exists in the provided matrix
 function digit_2 = checkingfirstnumber_digit2(submatrix)
     % iterating over each findingnumbers function to determine what number is in the second fifth of the image
     digit_2 = 0;
@@ -20,7 +19,7 @@ function digit_2 = checkingfirstnumber_digit2(submatrix)
         digit_2 = 8;
     elseif(findingnines(submatrix, 2)==1)
         digit_2 = 9;
-    else % if none of the findingnumbers functions returned that their number was found we have an invalid character
+    else
         fprintf("Invalid character for second number\n");
     end
 end

@@ -1,3 +1,4 @@
+%% function to convert the image to a cleaned matrix of its pixels (either black (0) or white (255))
 function array_of_img = pixeltomatrix(pics)
     
     %% producing a matrix of gradients from the greyscaled image
@@ -6,7 +7,7 @@ function array_of_img = pixeltomatrix(pics)
     % array we need
     img = imread(pics, 'png');
     [rows, columns] = size(img);
-    array_of_img = zeros(rows, columns/3);
+    array_of_img = zeros(rows, columns/3); % counteracting an error where the image is 3 times the size it needs to be
     
     % iterating through each pixel of the image and if it is black adding it to the matrix, otherwise
     % making making the element at (row, column) in the matrix white
@@ -20,5 +21,6 @@ function array_of_img = pixeltomatrix(pics)
             
         end
     end
+    
     fprintf("pixel to matrix compiled\n\n");
 end
