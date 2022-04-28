@@ -13,8 +13,6 @@ The code also uses error handling in the findingnumbers.m file.
 
 For information about the design view the design docs and text files in the Final Version directory
 
-# NOTE
-The images must be centre justified both horizontally and vertically and use size 72 calibri font.
 
 # How the program works
 The program subdivides the image of an arithmetic operation into either thirds or fifths if the image is a 1 digit operation (one digit on both sides) or a two digit operation (two digits on both sides). The findingnumbers functions (findingones, findingtwos etc.) are then called. These functions iterate over the matrices until the first black pixel is found. A unique set of vectors is then applied to that black pixel and its surrounding black pixels. These vectors iterate over each pixel they pass over and test if the pixel is black. If every pixel iterated over by the unique set of vectors was black, then we have found that this number or operator matches the specific number or operator that is trying to be determined by the function.
